@@ -1,31 +1,61 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
+import TextPressure from './TextPressure';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center">
-      <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-          Hi, I&apos;m <span className="text-blue-600">Ram</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 mb-8">
-          Full Stack Developer & Creative Problem Solver
-        </p>
-        <p className="text-lg text-gray-500 mb-10 max-w-2xl mx-auto">
-          I build exceptional digital experiences with modern technologies and clean, efficient code.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href="#projects" 
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            View My Work
-          </a>
-          <a 
-            href="#contact" 
-            className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            Get In Touch
-          </a>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left side - TextPressure Component */}
+          <div className="relative order-1 lg:order-1">
+            <div className="relative w-full min-h-[400px] flex items-center justify-center">
+              {/* TextPressure Container - Clean without background card */}
+              <div className="relative w-full h-[400px] flex items-center justify-center p-8">
+                <TextPressure
+                  text="VISHAL"
+                  textColor="#ffffff"
+                  strokeColor="#5227ff"
+                  stroke={true}
+                  strokeWidth={2}
+                  width={true}
+                  weight={true}
+                  italic={true}
+                  alpha={false}
+                  flex={true}
+                  scale={true}
+                  minFontSize={32}
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Hero Image */}
+          <div className="relative order-2 lg:order-2">
+            <div className="relative w-full max-w-md mx-auto lg:mx-0">
+              {/* Image with clean base */}
+              <div className="relative">
+                {/* Simple base/platform for the image */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-4 bg-linear-to-r from-transparent via-white/20 to-transparent rounded-full blur-sm"></div>
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-3/5 h-2 bg-linear-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
+                
+                {/* Image without background card */}
+                <Image
+                  src="/bghero.png"
+                  alt="Vishal - Portfolio Photo"
+                  width={400}
+                  height={500}
+                  className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105 relative z-10"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
