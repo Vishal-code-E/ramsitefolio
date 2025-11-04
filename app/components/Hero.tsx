@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import TextPressure from './TextPressure';
+import SplitText from './SplitText';
 
 const Hero = () => {
   return (
@@ -10,13 +11,14 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
-          {/* Left side - TextPressure Component */}
+          {/* Left side - Greeting and TextPressure Component */}
           <div className="relative order-1 lg:order-1">
-            <div className="relative w-full min-h-[400px] flex items-center justify-center">
-              {/* TextPressure Container - Clean without background card */}
-              <div className="relative w-full h-[400px] flex items-center justify-center p-8">
+            <div className="relative w-full min-h-[500px]">
+              
+              {/* TextPressure Container - Main centered element */}
+              <div className="absolute inset-0 flex items-center justify-center p-8 mt-16">
                 <TextPressure
-                  text="VISHAL"
+                  text="SRI RAM"
                   textColor="#ffffff"
                   strokeColor="#5227ff"
                   stroke={true}
@@ -31,6 +33,25 @@ const Hero = () => {
                   className="w-full h-full"
                 />
               </div>
+              
+              {/* Greeting with SplitText - Positioned to align H with S */}
+              <div className="absolute top-8 left-8 text-left">
+                <SplitText
+                  text="Hello , I'am"
+                  className="text-3xl md:text-4xl text-gray-300 font-bold mb-2 tracking-wider"
+                  delay={0.1}
+                  stagger={0.2}
+                  animation="fadeUp"
+                />
+                <SplitText
+                  text="Sri Ram"
+                  className="text-4xl md:text-5xl font-black bg-linear-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide"
+                  delay={1.2}
+                  stagger={0.08}
+                  animation="scale"
+                />
+              </div>
+              
             </div>
           </div>
 
