@@ -32,6 +32,18 @@ const MOBILE_BREAKPOINT = 768;
 const cardData: BentoCardProps[] = [
   {
     color: '#060010',
+    title: 'ramportfolio',
+    description: 'Modern portfolio website showcasing cutting-edge web development with Next.js 16.',
+    label: 'Portfolio'
+  },
+  {
+    color: '#060010',
+    title: 'Eventhub',
+    description: 'Comprehensive event management platform with seamless booking and organization.',
+    label: 'Event Platform'
+  },
+  {
+    color: '#060010',
     title: 'Avataq.ai',
     description: 'Autonomous software teams for startups. Building the future of AI-driven development.',
     label: 'AI Venture'
@@ -44,27 +56,9 @@ const cardData: BentoCardProps[] = [
   },
   {
     color: '#060010',
-    title: 'E-Cell Leadership',
-    description: 'Leading entrepreneurship initiatives at Raghu Engineering College.',
-    label: 'Leadership'
-  },
-  {
-    color: '#060010',
-    title: 'Full-Stack Apps',
-    description: 'Modern web applications with React, Next.js, and cutting-edge tech.',
-    label: 'Web Development'
-  },
-  {
-    color: '#060010',
-    title: 'Machine Learning',
-    description: 'AI models and autonomous systems for real-world applications.',
-    label: 'ML/AI'
-  },
-  {
-    color: '#060010',
-    title: 'Open Source',
-    description: 'Contributing to the developer community with innovative solutions.',
-    label: 'Community'
+    title: 'Aston Martin Formula One ML',
+    description: 'Advanced machine learning analytics for Formula One racing performance optimization.',
+    label: 'F1 Analytics'
   }
 ];
 
