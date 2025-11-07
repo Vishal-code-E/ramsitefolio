@@ -44,6 +44,12 @@ const cardData: BentoCardProps[] = [
   },
   {
     color: '#060010',
+    title: 'E-CELL REC',
+    description: 'Official website for Entrepreneurship Cell at Raghu Engineering College. Visit: ecellrec.app',
+    label: 'Leadership'
+  },
+  {
+    color: '#060010',
     title: 'Avataq.ai',
     description: 'Autonomous software teams for startups. Building the future of AI-driven development.',
     label: 'AI Venture'

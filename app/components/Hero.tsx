@@ -4,8 +4,19 @@ import React from 'react';
 import Image from 'next/image';
 import TextPressure from './TextPressure';
 import SplitText from './SplitText';
+import { HoverBorderGradient } from '../../components/ui/hover-border-gradient';
 
 const Hero = () => {
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -32,6 +43,18 @@ const Hero = () => {
                   minFontSize={32}
                   className="w-full h-full"
                 />
+              </div>
+              
+              {/* Explore Me Button - Positioned to the left below SRI RAM */}
+              <div className="absolute inset-0 flex items-center justify-start pl-16 p-8 mt-32">
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="button"
+                  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+                  onClick={scrollToAbout}
+                >
+                  <span>Explore Me</span>
+                </HoverBorderGradient>
               </div>
               
               {/* Greeting with SplitText - Positioned to align H with S */}
