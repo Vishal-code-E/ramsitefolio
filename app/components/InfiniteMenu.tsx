@@ -701,6 +701,7 @@ class InfiniteGridMenu {
   private _frames = 0;
 
   private movementActive = false;
+  private currentActiveIndex = 0;
 
   private TARGET_FRAME_DURATION = 1000 / 60;
   private SPHERE_RADIUS = 2;
@@ -742,6 +743,10 @@ class InfiniteGridMenu {
     this.updateProjectionMatrix();
   }
 
+  public getCurrentActiveIndex(): number {
+    return this.currentActiveIndex;
+  }
+
   public run(time = 0): void {
     this._deltaTime = Math.min(32, time - this._time);
     this._time = time;
@@ -757,7 +762,8 @@ class InfiniteGridMenu {
   private init(onInit?: InitCallback): void {
     const gl = this.canvas.getContext('webgl2', {
       antialias: true,
-      alpha: false
+      alpha: true,
+      premultipliedAlpha: false
     });
     if (!gl) {
       throw new Error('No WebGL 2 context!');
@@ -924,6 +930,8 @@ class InfiniteGridMenu {
     gl.useProgram(this.discProgram);
     gl.enable(gl.CULL_FACE);
     gl.enable(gl.DEPTH_TEST);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -1007,6 +1015,7 @@ class InfiniteGridMenu {
     if (!this.control.isPointerDown) {
       const nearestVertexIndex = this.findNearestVertexIndex();
       const itemIndex = nearestVertexIndex % Math.max(1, this.items.length);
+      this.currentActiveIndex = itemIndex;
       this.onActiveItemChange(itemIndex);
       const snapDirection = vec3.normalize(vec3.create(), this.getVertexWorldPosition(nearestVertexIndex));
       this.control.snapTargetDirection = snapDirection;
@@ -1099,7 +1108,8 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
       <canvas
         id="infinite-grid-menu-canvas"
         ref={canvasRef}
-        className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing"
+        className="cursor-pointer w-full h-full overflow-hidden relative outline-none hover:cursor-pointer bg-transparent"
+        style={{ background: 'transparent' }}
       />
     </div>
   );
