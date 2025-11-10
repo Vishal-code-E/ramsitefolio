@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import LightRaysBackground from '../components/LightRaysBackground';
 
 const ECellPage = () => {
   return (
-    <main className="bg-black text-white min-h-screen">
+    <LightRaysBackground>
+      <main className="text-white min-h-screen">
       <div className="max-w-4xl mx-auto px-4 py-20">
         {/* Back Button */}
         <Link 
@@ -219,6 +221,7 @@ const ECellPage = () => {
         </div>
       </div>
     </main>
+    </LightRaysBackground>
   );
 };
 
