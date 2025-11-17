@@ -35,7 +35,6 @@ export default function Home() {
       {showContent && (
         <>
           <PillNav
-            logo=""
             items={navItems}
             initialLoadAnimation={true}
             baseColor="#1a1a1a"
