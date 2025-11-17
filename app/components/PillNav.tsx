@@ -266,8 +266,10 @@ const PillNav: React.FC<PillNavProps> = ({
         style={cssVars}
       >
         <Link
-          href="/"
-          aria-label="Home"
+          href="https://sri-ram-micro.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Mobile Microsite"
           onMouseEnter={handleLogoEnter}
           ref={el => {
             logoRef.current = el;
