@@ -68,7 +68,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ onComplete }) => {
     <div className="loading-container fixed inset-0 z-50 bg-black flex items-center justify-center">
       <div className="text-center">
         <div className="loading-text text-white text-2xl md:text-4xl font-light mb-8 tracking-wider">
-          PORTFOLIO
+          RAM&apos;S PORTFOLIO
         </div>
         
         <div className="loading-bar-container w-64 h-0.5 bg-white/20 rounded-full mx-auto mb-8 overflow-hidden">
