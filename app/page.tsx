@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
 import BlogSection from './components/BlogSection';
 import Contact from './components/Contact';
@@ -14,6 +15,7 @@ import LoadingAnimation from './components/LoadingAnimation';
 const navItems = [
   { label: 'HOME', href: '#home' },
   { label: 'ABOUT', href: '#about' },
+  { label: 'EXPERIENCE', href: '#experience' },
   { label: 'PROJECTS', href: '#projects' },
   { label: 'BLOG', href: '#blog' },
   { label: 'CONTACT', href: '#contact' },
@@ -45,6 +47,11 @@ export default function Home() {
           <LightRaysBackground>
             <Hero />
             <About />
+          </LightRaysBackground>
+          
+          <Experience />
+          
+          <LightRaysBackground>
             <Projects />
             <BlogSection />
             <Contact />
