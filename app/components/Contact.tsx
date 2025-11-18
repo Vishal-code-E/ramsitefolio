@@ -47,6 +47,8 @@ const Contact = () => {
         setStatusMessage('🎉 Awesome! Your message just landed in my inbox. I\'ll hit you back real soon - let\'s make something incredible together!');
         (e.target as HTMLFormElement).reset();
         
+        console.log('Firing confetti!', confettiRef.current);
+        
         // Fire confetti on success!
         confettiRef.current?.fire({
           particleCount: 100,
@@ -91,15 +93,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
-      {/* Confetti Canvas */}
+    <>
+      {/* Confetti Canvas - Fixed to viewport */}
       <Confetti
         ref={confettiRef}
-        className="absolute inset-0 pointer-events-none z-50"
+        className="fixed inset-0 w-full h-full pointer-events-none z-100"
         manualstart
       />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -303,7 +306,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 
