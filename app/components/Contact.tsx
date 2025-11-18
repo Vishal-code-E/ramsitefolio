@@ -1,13 +1,15 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { Confetti, ConfettiRef } from "@/components/ui/confetti";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
+  const confettiRef = useRef<ConfettiRef>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,7 +19,7 @@ const Contact = () => {
     const formData = new FormData(e.currentTarget);
     
     // Web3Forms API endpoint
-    const accessKey = 'YOUR_WEB3FORMS_ACCESS_KEY'; // Replace with your key from https://web3forms.com
+    const accessKey = 'ca4277c3-7830-4c08-9a97-9440493780ae';
     
     const data = {
       access_key: accessKey,
@@ -42,28 +44,61 @@ const Contact = () => {
 
       if (result.success) {
         setSubmitStatus('success');
-        setStatusMessage('✓ Message sent successfully! I\'ll get back to you soon.');
+        setStatusMessage('🎉 Awesome! Your message just landed in my inbox. I\'ll hit you back real soon - let\'s make something incredible together!');
         (e.target as HTMLFormElement).reset();
         
-        // Clear success message after 5 seconds
+        // Fire confetti on success!
+        confettiRef.current?.fire({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B'],
+        });
+        
+        // Fire more confetti after a slight delay
+        setTimeout(() => {
+          confettiRef.current?.fire({
+            particleCount: 50,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ['#3B82F6', '#8B5CF6'],
+          });
+          confettiRef.current?.fire({
+            particleCount: 50,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ['#10B981', '#F59E0B'],
+          });
+        }, 250);
+        
+        // Clear success message after 8 seconds
         setTimeout(() => {
           setSubmitStatus('idle');
           setStatusMessage('');
-        }, 5000);
+        }, 8000);
       } else {
         throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setStatusMessage('✗ Failed to send message. Please try emailing me directly at sriram182719@gmail.com');
+      setStatusMessage('😅 Oops! Something went wrong. No worries though - shoot me an email directly at sriram182719@gmail.com or ping me on LinkedIn!');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 relative">
+      {/* Confetti Canvas */}
+      <Confetti
+        ref={confettiRef}
+        className="absolute inset-0 pointer-events-none z-50"
+        manualstart
+      />
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
