@@ -1,13 +1,65 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    
+    const formData = new FormData(e.currentTarget);
+    
+    // Web3Forms API endpoint
+    const accessKey = 'YOUR_WEB3FORMS_ACCESS_KEY'; // Replace with your key from https://web3forms.com
+    
+    const data = {
+      access_key: accessKey,
+      name: `${formData.get('firstname')} ${formData.get('lastname')}`,
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+      from_name: "Portfolio Contact Form",
+      replyto: formData.get('email'),
+    };
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setStatusMessage('✓ Message sent successfully! I\'ll get back to you soon.');
+        (e.target as HTMLFormElement).reset();
+        
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+          setStatusMessage('');
+        }, 5000);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setStatusMessage('✗ Failed to send message. Please try emailing me directly at sriram182719@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -118,63 +170,100 @@ const Contact = () => {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
                 <LabelInputContainer>
-                  <Label htmlFor="firstname" className="text-gray-300">First name</Label>
+                  <Label htmlFor="firstname" className="text-gray-300">First name *</Label>
                   <Input 
-                    id="firstname" 
+                    id="firstname"
+                    name="firstname"
                     placeholder="John" 
                     type="text"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20"
+                    required
+                    disabled={isSubmitting}
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20 disabled:opacity-50"
                   />
                 </LabelInputContainer>
                 <LabelInputContainer>
-                  <Label htmlFor="lastname" className="text-gray-300">Last name</Label>
+                  <Label htmlFor="lastname" className="text-gray-300">Last name *</Label>
                   <Input 
-                    id="lastname" 
+                    id="lastname"
+                    name="lastname"
                     placeholder="Doe" 
                     type="text"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20"
+                    required
+                    disabled={isSubmitting}
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20 disabled:opacity-50"
                   />
                 </LabelInputContainer>
               </div>
               
               <LabelInputContainer>
-                <Label htmlFor="email" className="text-gray-300">Email Address</Label>
+                <Label htmlFor="email" className="text-gray-300">Email Address *</Label>
                 <Input 
-                  id="email" 
+                  id="email"
+                  name="email"
                   placeholder="your.email@example.com" 
                   type="email"
-                  className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20"
+                  required
+                  disabled={isSubmitting}
+                  className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20 disabled:opacity-50"
                 />
               </LabelInputContainer>
               
               <LabelInputContainer>
-                <Label htmlFor="subject" className="text-gray-300">Subject</Label>
+                <Label htmlFor="subject" className="text-gray-300">Subject *</Label>
                 <Input 
-                  id="subject" 
+                  id="subject"
+                  name="subject"
                   placeholder="Project Inquiry" 
                   type="text"
-                  className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20"
+                  required
+                  disabled={isSubmitting}
+                  className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-blue-500/20 disabled:opacity-50"
                 />
               </LabelInputContainer>
               
               <LabelInputContainer>
-                <Label htmlFor="message" className="text-gray-300">Message</Label>
+                <Label htmlFor="message" className="text-gray-300">Message *</Label>
                 <textarea
                   id="message"
                   name="message"
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
+                  required
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all disabled:opacity-50"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </LabelInputContainer>
 
+              {/* Status Message */}
+              {statusMessage && (
+                <div className={cn(
+                  "p-4 rounded-lg text-sm font-medium",
+                  submitStatus === 'success' && "bg-green-500/10 border border-green-500/20 text-green-400",
+                  submitStatus === 'error' && "bg-red-500/10 border border-red-500/20 text-red-400"
+                )}>
+                  {statusMessage}
+                </div>
+              )}
+
               <button
-                className="group/btn relative block h-12 w-full rounded-lg bg-linear-to-r from-blue-500 to-purple-500 font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+                className="group/btn relative block h-12 w-full rounded-lg bg-linear-to-r from-blue-500 to-purple-500 font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 type="submit"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <BottomGradient />
               </button>
+
+              <p className="text-xs text-gray-500 text-center">
+                Or reach out directly via{' '}
+                <a href="mailto:sriram182719@gmail.com" className="text-blue-400 hover:text-blue-300 underline">
+                  email
+                </a>
+                {' '}or{' '}
+                <a href="https://www.linkedin.com/in/vishal-epu-646822222/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                  LinkedIn
+                </a>
+              </p>
             </form>
           </div>
         </div>
