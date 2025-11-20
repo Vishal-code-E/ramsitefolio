@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Testimonials from './components/Testimonials';
 import BlogSection from './components/BlogSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -17,6 +18,7 @@ const navItems = [
   { label: 'ABOUT', href: '#about' },
   { label: 'EXPERIENCE', href: '#experience' },
   { label: 'PROJECTS', href: '#projects' },
+  { label: 'TESTIMONIALS', href: '#testimonials' },
   { label: 'BLOG', href: '#blog' },
   { label: 'CONTACT', href: '#contact' },
 ];
@@ -31,7 +33,7 @@ export default function Home() {
   return (
     <main className="bg-black text-white min-h-screen">
       {!showContent && <LoadingAnimation onComplete={handleLoadingComplete} />}
-      
+
       {showContent && (
         <>
           <PillNav
@@ -42,16 +44,17 @@ export default function Home() {
             hoveredPillTextColor="#ffffff"
             pillTextColor="#1a1a1a"
           />
-          
+
           <LightRaysBackground>
             <Hero />
             <About />
           </LightRaysBackground>
-          
+
           <Experience />
-          
+
           <LightRaysBackground>
             <Projects />
+            <Testimonials />
             <BlogSection />
             <Contact />
           </LightRaysBackground>
