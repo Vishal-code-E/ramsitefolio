@@ -107,6 +107,8 @@ const LightRays: React.FC<LightRaysProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+  const isVisibleRef = useRef(false);
+
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -114,8 +116,9 @@ const LightRays: React.FC<LightRaysProps> = ({
       entries => {
         const entry = entries[0];
         setIsVisible(entry.isIntersecting);
+        isVisibleRef.current = entry.isIntersecting;
       },
-      { threshold: 0.1 }
+      { threshold: 0.0 } // Trigger as soon as even 1px is visible
     );
 
     observerRef.current.observe(containerRef.current);
@@ -129,23 +132,22 @@ const LightRays: React.FC<LightRaysProps> = ({
   }, []);
 
   useEffect(() => {
-    if (!isVisible || !containerRef.current) return;
-
-    if (cleanupFunctionRef.current) {
-      cleanupFunctionRef.current();
-      cleanupFunctionRef.current = null;
-    }
+    if (!containerRef.current) return;
 
     const initializeWebGL = async () => {
       if (!containerRef.current) return;
 
+      // Small delay to ensure container has dimensions
       await new Promise(resolve => setTimeout(resolve, 10));
 
       if (!containerRef.current) return;
 
       const renderer = new Renderer({
-        dpr: Math.min(window.devicePixelRatio, 2),
-        alpha: true
+        dpr: Math.min(window.devicePixelRatio, 1), // Limit DPR to 1 for performance
+        alpha: true,
+        depth: false,
+        stencil: false,
+        antialias: false
       });
       rendererRef.current = renderer;
 
@@ -293,7 +295,7 @@ void main() {
       const updatePlacement = () => {
         if (!containerRef.current || !renderer) return;
 
-        renderer.dpr = Math.min(window.devicePixelRatio, 2);
+        renderer.dpr = Math.min(window.devicePixelRatio, 1);
 
         const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
         renderer.setSize(wCSS, hCSS);
@@ -310,7 +312,9 @@ void main() {
       };
 
       const loop = (t: number) => {
-        if (!rendererRef.current || !uniformsRef.current || !meshRef.current) {
+        animationIdRef.current = requestAnimationFrame(loop);
+
+        if (!isVisibleRef.current || !rendererRef.current || !uniformsRef.current || !meshRef.current) {
           return;
         }
 
@@ -327,10 +331,8 @@ void main() {
 
         try {
           renderer.render({ scene: mesh });
-          animationIdRef.current = requestAnimationFrame(loop);
         } catch (error) {
           console.warn('WebGL rendering error:', error);
-          return;
         }
       };
 
@@ -376,21 +378,7 @@ void main() {
         cleanupFunctionRef.current = null;
       }
     };
-  }, [
-    isVisible,
-    raysOrigin,
-    raysColor,
-    raysSpeed,
-    lightSpread,
-    rayLength,
-    pulsating,
-    fadeDistance,
-    saturation,
-    followMouse,
-    mouseInfluence,
-    noiseAmount,
-    distortion
-  ]);
+  }, []); // Run once on mount
 
   useEffect(() => {
     if (!uniformsRef.current || !containerRef.current || !rendererRef.current) return;
@@ -438,7 +426,7 @@ void main() {
     };
 
     if (followMouse) {
-      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
       return () => window.removeEventListener('mousemove', handleMouseMove);
     }
   }, [followMouse]);
