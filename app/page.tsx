@@ -7,7 +7,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import BlogSection from './components/BlogSection';
-import Gallery from './components/Gallery';
+import GalleryLink from './components/GalleryLink';
 import NewsletterSignup from './components/NewsletterSignup';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -60,7 +60,7 @@ export default function Home() {
             <Testimonials />
             <BlogSection />
             <NewsletterSignup />
-            <Gallery />
+            <GalleryLink />
             <Contact />
           </LightRaysBackground>
           <Footer />
