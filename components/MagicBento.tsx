@@ -36,36 +36,31 @@ const cardData: BentoCardProps[] = [
     color: '#060010',
     title: 'Ram\'s Portfolio',
     description: 'Modern portfolio website showcasing cutting-edge web development with Next.js 16, GSAP animations, and Aceternity UI.',
-    label: 'Portfolio',
-    image: '/Projects%20/Screenshot%202025-11-23%20at%2010.25.25%20PM.png'
+    label: 'Portfolio'
   },
   {
     color: '#060010',
     title: 'EventHub',
     description: 'Comprehensive event management platform with seamless booking, real-time notifications, and organization tools.',
-    label: 'Event Platform',
-    image: '/Projects%20/Screenshot%202025-11-23%20at%2010.31.43%20PM.png'
+    label: 'Event Platform'
   },
   {
     color: '#060010',
     title: 'Avataq.ai',
     description: 'Autonomous software teams for startups. Building the future of AI-driven development with agentic workflows.',
-    label: 'AI Venture',
-    image: '/Projects%20/Screenshot%202025-11-23%20at%2010.32.54%20PM.png'
+    label: 'AI Venture'
   },
   {
     color: '#060010',
     title: 'PromptCraft',
     description: 'Cutting-edge generative AI solutions platform empowering businesses with advanced LLM integration and automation.',
-    label: 'GenAI Platform',
-    image: '/Projects%20/Screenshot%202025-11-23%20at%2010.47.43%20PM.png'
+    label: 'GenAI Platform'
   },
   {
     color: '#060010',
     title: 'Aston Martin F1 Analytics',
     description: 'Advanced machine learning analytics for Formula One racing performance optimization using TensorFlow and PyTorch.',
-    label: 'ML Analytics',
-    image: '/Projects%20/Screenshot%202025-11-23%20at%2010.47.51%20PM.png'
+    label: 'ML Analytics'
   }
 ];
 
