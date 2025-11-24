@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import TextPressure from './TextPressure';
 import SplitText from './SplitText';
+import DevelopmentPopup from './DevelopmentPopup';
 import { HoverBorderGradient } from '../../components/ui/hover-border-gradient';
 
 const Hero = () => {
@@ -19,6 +20,9 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Development Popup */}
+      <DevelopmentPopup />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
