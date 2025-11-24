@@ -1,10 +1,89 @@
-import React from 'react';
-import MagicBento from '../../components/MagicBento';
+'use client';
+
+import React, { useState, useCallback } from 'react';
+import CardSwap, { Card } from '../../components/CardSwap';
 import { IconCloud } from '../../components/ui/icon-cloud';
+import { ExternalLink, Github, Zap, Users, Rocket, Lightbulb, Trophy } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const Projects = () => {
+  const [activeProject, setActiveProject] = useState(0);
+
+  const projects = [
+    {
+      title: "Ram's Portfolio",
+      description: "Modern portfolio website showcasing cutting-edge web development with Next.js 16, GSAP animations, and Aceternity UI.",
+      label: "Portfolio",
+      color: "from-purple-500 to-pink-500",
+      icon: Rocket,
+      details: [
+        "Built with Next.js 16 and React 19",
+        "Advanced GSAP animations and transitions",
+        "Fully responsive and performant design",
+        "Interactive UI components with Aceternity"
+      ]
+    },
+    {
+      title: "EventHub",
+      description: "Comprehensive event management platform with seamless booking, real-time notifications, and organization tools.",
+      label: "Event Platform",
+      color: "from-blue-500 to-cyan-500",
+      icon: Users,
+      details: [
+        "Real-time event booking system",
+        "Push notifications for updates",
+        "Multi-user collaboration tools",
+        "Analytics dashboard for organizers"
+      ]
+    },
+    {
+      title: "Avataq.ai",
+      description: "Autonomous software teams for startups. Building the future of AI-driven development with agentic workflows.",
+      label: "AI Venture",
+      color: "from-green-500 to-emerald-500",
+      icon: Zap,
+      details: [
+        "AI-powered autonomous development teams",
+        "Agentic workflow automation",
+        "Startup-focused rapid prototyping",
+        "Intelligent code generation and review"
+      ]
+    },
+    {
+      title: "PromptCraft",
+      description: "Cutting-edge generative AI solutions platform empowering businesses with advanced LLM integration and automation.",
+      label: "GenAI Platform",
+      color: "from-orange-500 to-red-500",
+      icon: Lightbulb,
+      details: [
+        "Advanced LLM integration framework",
+        "Custom prompt engineering tools",
+        "Business process automation",
+        "Multi-model AI orchestration"
+      ]
+    },
+    {
+      title: "Aston Martin F1 Analytics",
+      description: "Advanced machine learning analytics for Formula One racing performance optimization using TensorFlow and PyTorch.",
+      label: "ML Analytics",
+      color: "from-indigo-500 to-purple-500",
+      icon: Trophy,
+      details: [
+        "Real-time telemetry data analysis",
+        "Predictive performance modeling",
+        "TensorFlow & PyTorch implementations",
+        "Race strategy optimization algorithms"
+      ]
+    }
+  ];
+
+  const handleCardSwap = useCallback((cardIndex: number) => {
+    console.log('Card swapped to index:', cardIndex);
+    setActiveProject(cardIndex);
+  }, []);
+
   return (
-    <section id="projects" className="py-20 min-h-screen flex items-center justify-center">
+    <section id="projects" className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
@@ -15,20 +94,126 @@ const Projects = () => {
           </p>
         </div>
         
-        <div className="w-full flex justify-center">
-          <MagicBento
-            textAutoHide={false}
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            disableAnimations={false}
-            spotlightRadius={400}
-            particleCount={10}
-            enableTilt={true}
-            glowColor="132, 0, 255"
-            clickEffect={true}
-            enableMagnetism={true}
-          />
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32 -mt-20">
+          {/* Project Details Section - LEFT SIDE */}
+          <div className="relative h-[650px] flex items-center px-8 lg:px-12 order-2 lg:order-1">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeProject}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                className="space-y-6"
+              >
+                {/* Icon and Title */}
+                <div className="flex items-center gap-4">
+                  {React.createElement(projects[activeProject].icon, {
+                    className: `w-12 h-12 text-transparent bg-linear-to-r ${projects[activeProject].color} bg-clip-text`
+                  })}
+                  <div>
+                    <p className="text-sm text-gray-400 uppercase tracking-wider mb-1">
+                      {projects[activeProject].label}
+                    </p>
+                    <h3 className="text-4xl font-bold text-white">
+                      {projects[activeProject].title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  {projects[activeProject].description}
+                </p>
+
+                {/* Key Features */}
+                <div className="space-y-3 pt-4">
+                  <h4 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
+                    Key Features
+                  </h4>
+                  {projects[activeProject].details.map((detail, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: idx * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${projects[activeProject].color} mt-2`} />
+                      <p className="text-gray-400 leading-relaxed">{detail}</p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Progress Indicator */}
+                <div className="flex gap-2 pt-6">
+                  {projects.map((_, idx) => (
+                    <div
+                      key={idx}
+                      className={`h-1 rounded-full transition-all duration-300 ${
+                        idx === activeProject 
+                          ? `w-12 bg-linear-to-r ${projects[activeProject].color}` 
+                          : 'w-8 bg-white/20'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Card Swap Section - RIGHT SIDE */}
+          <div className="flex justify-center lg:justify-start relative h-[650px] order-1 lg:order-2">
+            <CardSwap
+              width={600}
+              height={500}
+              cardDistance={70}
+              verticalDistance={80}
+              delay={4000}
+              pauseOnHover={true}
+              skewAmount={5}
+              easing="elastic"
+              onCardSwap={handleCardSwap}
+              onCardClick={(idx) => setActiveProject(idx)}
+            >
+              {projects.map((project, idx) => (
+                <Card 
+                  key={idx} 
+                  customClass="p-10 backdrop-blur-xl bg-gradient-to-br from-black/80 via-purple-900/20 to-black/80 border-2 border-white/20 shadow-2xl shadow-purple-500/20"
+                  onClick={() => setActiveProject(idx)}
+                >
+                  <div className="h-full flex flex-col justify-between relative">
+                    {/* Decorative gradient orb */}
+                    <div className={`absolute -top-6 -right-6 w-32 h-32 bg-linear-to-br ${project.color} rounded-full blur-3xl opacity-30`} />
+                    
+                    <div className="relative z-10">
+                      <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6 bg-linear-to-r ${project.color} text-white shadow-lg`}>
+                        <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                        {project.label}
+                      </div>
+                      <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300 text-base leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+                    
+                    <div className="flex gap-4 mt-8 relative z-10">
+                      <button className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-white text-black hover:bg-gray-100 rounded-xl transition-all duration-300 font-semibold shadow-lg hover:scale-105">
+                        <ExternalLink className="w-5 h-5" />
+                        View Project
+                      </button>
+                      <button className="flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300 text-white font-semibold border border-white/20 hover:border-white/40">
+                        <Github className="w-5 h-5" />
+                        Source
+                      </button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </CardSwap>
+          </div>
         </div>
 
         {/* Technology Stack - Icon Cloud */}
