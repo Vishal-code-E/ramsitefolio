@@ -7,6 +7,8 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import BlogSection from './components/BlogSection';
+import GalleryLink from './components/GalleryLink';
+import NewsletterSignup from './components/NewsletterSignup';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LightRaysBackground from './components/LightRaysBackground';
@@ -20,6 +22,7 @@ const navItems = [
   { label: 'PROJECTS', href: '#projects' },
   { label: 'TESTIMONIALS', href: '#testimonials' },
   { label: 'BLOG', href: '#blog' },
+  { label: 'GALLERY', href: '#gallery' },
   { label: 'CONTACT', href: '#contact' },
 ];
 
@@ -56,6 +59,8 @@ export default function Home() {
             <Projects />
             <Testimonials />
             <BlogSection />
+            <NewsletterSignup />
+            <GalleryLink />
             <Contact />
           </LightRaysBackground>
           <Footer />

@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
+import Image from 'next/image';
 
 export interface BentoCardProps {
   color?: string;
   title?: string;
   description?: string;
   label?: string;
+  image?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
 }
@@ -32,39 +34,33 @@ const MOBILE_BREAKPOINT = 768;
 const cardData: BentoCardProps[] = [
   {
     color: '#060010',
-    title: 'ramportfolio',
-    description: 'Modern portfolio website showcasing cutting-edge web development with Next.js 16.',
+    title: 'Ram\'s Portfolio',
+    description: 'Modern portfolio website showcasing cutting-edge web development with Next.js 16, GSAP animations, and Aceternity UI.',
     label: 'Portfolio'
   },
   {
     color: '#060010',
-    title: 'Eventhub',
-    description: 'Comprehensive event management platform with seamless booking and organization.',
+    title: 'EventHub',
+    description: 'Comprehensive event management platform with seamless booking, real-time notifications, and organization tools.',
     label: 'Event Platform'
   },
   {
     color: '#060010',
-    title: 'E-CELL REC',
-    description: 'Official website for Entrepreneurship Cell at Raghu Engineering College. Visit: ecellrec.app',
-    label: 'Leadership'
-  },
-  {
-    color: '#060010',
     title: 'Avataq.ai',
-    description: 'Autonomous software teams for startups. Building the future of AI-driven development.',
+    description: 'Autonomous software teams for startups. Building the future of AI-driven development with agentic workflows.',
     label: 'AI Venture'
   },
   {
     color: '#060010',
-    title: 'Prompt Craft',
-    description: 'Cutting-edge generative AI solutions platform for modern businesses.',
+    title: 'PromptCraft',
+    description: 'Cutting-edge generative AI solutions platform empowering businesses with advanced LLM integration and automation.',
     label: 'GenAI Platform'
   },
   {
     color: '#060010',
-    title: 'Aston Martin Formula One ML',
-    description: 'Advanced machine learning analytics for Formula One racing performance optimization.',
-    label: 'F1 Analytics'
+    title: 'Aston Martin F1 Analytics',
+    description: 'Advanced machine learning analytics for Formula One racing performance optimization using TensorFlow and PyTorch.',
+    label: 'ML Analytics'
   }
 ];
 
@@ -705,10 +701,21 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__header flex justify-between gap-3 relative text-white">
+                  {card.image && (
+                    <div className="absolute inset-0 opacity-20 hover:opacity-30 transition-opacity duration-300">
+                      <Image
+                        src={card.image}
+                        alt={card.title || ''}
+                        fill
+                        className="object-cover rounded-3xl"
+                        unoptimized
+                      />
+                    </div>
+                  )}
+                  <div className="card__header flex justify-between gap-3 relative text-white z-10">
                     <span className="card__label text-base">{card.label}</span>
                   </div>
-                  <div className="card__content flex flex-col relative text-white">
+                  <div className="card__content flex flex-col relative text-white z-10">
                     <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
                       {card.title}
                     </h3>
@@ -837,10 +844,21 @@ const MagicBento: React.FC<BentoProps> = ({
                   el.addEventListener('click', handleClick);
                 }}
               >
-                <div className="card__header flex justify-between gap-3 relative text-white">
+                {card.image && (
+                  <div className="absolute inset-0 opacity-20 hover:opacity-30 transition-opacity duration-300">
+                    <Image
+                      src={card.image}
+                      alt={card.title || ''}
+                      fill
+                      className="object-cover rounded-3xl"
+                      unoptimized
+                    />
+                  </div>
+                )}
+                <div className="card__header flex justify-between gap-3 relative text-white z-10">
                   <span className="card__label text-base">{card.label}</span>
                 </div>
-                <div className="card__content flex flex-col relative text-white">
+                <div className="card__content flex flex-col relative text-white z-10">
                   <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
                     {card.title}
                   </h3>
