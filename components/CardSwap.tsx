@@ -174,6 +174,11 @@ const CardSwap: React.FC<CardSwapProps> = ({
       });
     };
 
+    // Initial state - notify about the first card
+    if (onCardSwap) {
+      onCardSwap(0);
+    }
+
     swap();
     intervalRef.current = window.setInterval(swap, delay);
 
@@ -196,7 +201,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
       };
     }
     return () => clearInterval(intervalRef.current);
-  }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
+  }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing, onCardSwap]);
 
   const rendered = childArr.map((child, i) =>
     isValidElement<CardProps>(child)

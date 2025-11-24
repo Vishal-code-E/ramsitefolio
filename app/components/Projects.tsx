@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import CardSwap, { Card } from '../../components/CardSwap';
 import { IconCloud } from '../../components/ui/icon-cloud';
 import { ExternalLink, Github, Zap, Users, Rocket, Lightbulb, Trophy } from 'lucide-react';
@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const projects = [
     {
@@ -78,10 +77,10 @@ const Projects = () => {
     }
   ];
 
-  const handleCardSwap = (cardIndex: number) => {
-    // This is called when CardSwap animation completes and moves to next card
+  const handleCardSwap = useCallback((cardIndex: number) => {
+    console.log('Card swapped to index:', cardIndex);
     setActiveProject(cardIndex);
-  };
+  }, []);
 
   return (
     <section id="projects" className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden">
