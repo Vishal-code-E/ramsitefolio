@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import LightRaysBackground from '../components/LightRaysBackground';
-import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud } from 'lucide-react';
+import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud, Github, ArrowRight } from 'lucide-react';
 
 const AvataqPage = () => {
   const features = [
@@ -156,18 +156,20 @@ const AvataqPage = () => {
                 the clock to bring your vision to life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="#contact"
-                  className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+                  className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
                 >
                   Get Started Today
-                </a>
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
                 <a
                   href="https://github.com/Vishal-code-E"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
                 >
+                  <Github className="w-5 h-5" />
                   View Source Code
                 </a>
               </div>
