@@ -20,9 +20,7 @@ const AvataqPage = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="w-20 h-20 bg-linear-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
+              <Bot className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Avataq.ai
