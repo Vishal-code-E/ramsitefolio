@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import LightRaysBackground from '../components/LightRaysBackground';
-import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud, Github, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud, Github, ArrowRight, Quote } from 'lucide-react';
 
 const AvataqPage = () => {
   const features = [
@@ -99,9 +99,13 @@ const AvataqPage = () => {
                 core technology products.
               </p>
 
-              <div className="bg-linear-to-r from-purple-500/20 to-blue-600/20 p-6 rounded-xl border border-purple-500/30">
-                <h3 className="font-bold text-lg mb-3">🎯 Mission Statement</h3>
-                <p className="text-gray-300 text-sm">
+              <div className="bg-linear-to-r from-purple-500/20 to-blue-600/20 p-6 rounded-xl border border-purple-500/30 relative overflow-hidden">
+                <Quote className="absolute top-4 right-4 w-12 h-12 text-purple-500/10 rotate-180" />
+                <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                  <Target className="w-5 h-5 text-purple-400" />
+                  Mission Statement
+                </h3>
+                <p className="text-gray-300 text-sm relative z-10 italic">
                   &quot;To democratize software development by providing startups with AI-powered autonomous teams
                   that can build, iterate, and scale products faster than traditional development approaches.&quot;
                 </p>
