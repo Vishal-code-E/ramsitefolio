@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import LightRaysBackground from '../components/LightRaysBackground';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Bot } from 'lucide-react';
 
 const AvataqPage = () => {
   return (
