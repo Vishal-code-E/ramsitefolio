@@ -1,9 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
 import LightRaysBackground from '../components/LightRaysBackground';
-import { ArrowLeft, Bot } from 'lucide-react';
+import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu } from 'lucide-react';
 
 const AvataqPage = () => {
+  const features = [
+    {
+      title: "Autonomous Development",
+      description: "AI agents that can write, test, and deploy code independently with minimal human oversight.",
+      icon: <Cpu className="w-4 h-4 text-white" />,
+      color: "bg-blue-500"
+    },
+    {
+      title: "Rapid Iteration",
+      description: "Continuous improvement cycles that adapt to changing requirements and user feedback.",
+      icon: <Zap className="w-4 h-4 text-white" />,
+      color: "bg-green-500"
+    },
+    {
+      title: "Startup-Focused",
+      description: "Designed specifically for early-stage companies with limited resources but big ambitions.",
+      icon: <Target className="w-4 h-4 text-white" />,
+      color: "bg-purple-500"
+    },
+    {
+      title: "Scalable Solutions",
+      description: "Architecture that grows with your startup from MVP to enterprise-level applications.",
+      icon: <TrendingUp className="w-4 h-4 text-white" />,
+      color: "bg-orange-500"
+    }
+  ];
+
   return (
     <LightRaysBackground>
       <main className="text-white min-h-screen">
@@ -57,45 +84,19 @@ const AvataqPage = () => {
             <div>
               <h2 className="text-2xl font-bold mb-6">Key Features</h2>
               <div className="space-y-4">
-                <div className="bg-white/5 p-4 rounded-lg border border-white/10">
-                  <h3 className="font-semibold mb-2 flex items-center">
-                    <span className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3 text-sm">🤖</span>
-                    Autonomous Development
-                  </h3>
-                  <p className="text-gray-300 text-sm">
-                    AI agents that can write, test, and deploy code independently with minimal human oversight.
-                  </p>
-                </div>
-
-                <div className="bg-white/5 p-4 rounded-lg border border-white/10">
-                  <h3 className="font-semibold mb-2 flex items-center">
-                    <span className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3 text-sm">⚡</span>
-                    Rapid Iteration
-                  </h3>
-                  <p className="text-gray-300 text-sm">
-                    Continuous improvement cycles that adapt to changing requirements and user feedback.
-                  </p>
-                </div>
-
-                <div className="bg-white/5 p-4 rounded-lg border border-white/10">
-                  <h3 className="font-semibold mb-2 flex items-center">
-                    <span className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center mr-3 text-sm">🎯</span>
-                    Startup-Focused
-                  </h3>
-                  <p className="text-gray-300 text-sm">
-                    Designed specifically for early-stage companies with limited resources but big ambitions.
-                  </p>
-                </div>
-
-                <div className="bg-white/5 p-4 rounded-lg border border-white/10">
-                  <h3 className="font-semibold mb-2 flex items-center">
-                    <span className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center mr-3 text-sm">📈</span>
-                    Scalable Solutions
-                  </h3>
-                  <p className="text-gray-300 text-sm">
-                    Architecture that grows with your startup from MVP to enterprise-level applications.
-                  </p>
-                </div>
+                {features.map((feature, index) => (
+                  <div key={index} className="bg-white/5 p-4 rounded-lg border border-white/10 hover:border-white/20 transition-colors">
+                    <h3 className="font-semibold mb-2 flex items-center">
+                      <span className={`w-8 h-8 ${feature.color} rounded-lg flex items-center justify-center mr-3`}>
+                        {feature.icon}
+                      </span>
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
