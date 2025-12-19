@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import LightRaysBackground from '../components/LightRaysBackground';
-import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud, Github, ArrowRight, Quote } from 'lucide-react';
+import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud, Github, ArrowRight, Quote, Calendar } from 'lucide-react';
 
 const AvataqPage = () => {
   const features = [
@@ -87,7 +87,13 @@ const AvataqPage = () => {
           {/* Content */}
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-6">The Vision</h2>
+              <div className="flex items-center gap-4 mb-6">
+                <h2 className="text-2xl font-bold">The Vision</h2>
+                <div className="bg-purple-500/10 text-purple-400 px-3 py-1 rounded-full text-xs font-medium border border-purple-500/20 flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  Founded 2024
+                </div>
+              </div>
               <p className="text-gray-300 mb-6">
                 Avataq.ai was born from a simple yet powerful idea: What if startups could have access to
                 autonomous software development teams that work 24/7, never get tired, and continuously
