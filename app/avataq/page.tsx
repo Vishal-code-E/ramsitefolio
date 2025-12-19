@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import LightRaysBackground from '../components/LightRaysBackground';
-import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu } from 'lucide-react';
+import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud } from 'lucide-react';
 
 const AvataqPage = () => {
   const features = [
@@ -28,6 +28,33 @@ const AvataqPage = () => {
       description: "Architecture that grows with your startup from MVP to enterprise-level applications.",
       icon: <TrendingUp className="w-4 h-4 text-white" />,
       color: "bg-orange-500"
+    }
+  ];
+
+  const techStack = [
+    {
+      title: "AI/ML",
+      tools: "TensorFlow, PyTorch",
+      icon: <Brain className="w-8 h-8 text-blue-400" />,
+      bg: "bg-blue-500/20"
+    },
+    {
+      title: "Frontend",
+      tools: "React, Next.js",
+      icon: <Layout className="w-8 h-8 text-green-400" />,
+      bg: "bg-green-500/20"
+    },
+    {
+      title: "Backend",
+      tools: "Node.js, Python",
+      icon: <Server className="w-8 h-8 text-purple-400" />,
+      bg: "bg-purple-500/20"
+    },
+    {
+      title: "Cloud",
+      tools: "AWS, Docker",
+      icon: <Cloud className="w-8 h-8 text-orange-400" />,
+      bg: "bg-orange-500/20"
     }
   ];
 
@@ -105,39 +132,20 @@ const AvataqPage = () => {
           <div className="mt-16">
             <h2 className="text-3xl font-bold text-center mb-12">Technology Stack</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">🧠</span>
+              {techStack.map((tech, index) => (
+                <div key={index} className="text-center group hover:-translate-y-1 transition-transform duration-300">
+                  <div className={`w-16 h-16 ${tech.bg} rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
+                    {tech.icon}
+                  </div>
+                  <h3 className="font-semibold mb-1">{tech.title}</h3>
+                  <p className="text-gray-400 text-sm">{tech.tools}</p>
                 </div>
-                <h3 className="font-semibold mb-1">AI/ML</h3>
-                <p className="text-gray-400 text-sm">TensorFlow, PyTorch</p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">⚛️</span>
-                </div>
-                <h3 className="font-semibold mb-1">Frontend</h3>
-                <p className="text-gray-400 text-sm">React, Next.js</p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">🗄️</span>
-                </div>
-                <h3 className="font-semibold mb-1">Backend</h3>
-                <p className="text-gray-400 text-sm">Node.js, Python</p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">☁️</span>
-                </div>
-                <h3 className="font-semibold mb-1">Cloud</h3>
-                <p className="text-gray-400 text-sm">AWS, Docker</p>
-              </div>
+              ))}
             </div>
           </div>
+
+
+
 
           {/* Call to Action */}
           <div className="mt-16 text-center">
@@ -166,8 +174,8 @@ const AvataqPage = () => {
             </div>
           </div>
         </div>
-      </main>
-    </LightRaysBackground>
+      </main >
+    </LightRaysBackground >
   );
 };
 
