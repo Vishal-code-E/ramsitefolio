@@ -3,6 +3,11 @@ import Link from 'next/link';
 import LightRaysBackground from '../components/LightRaysBackground';
 import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud, Github, ArrowRight, Quote, Calendar } from 'lucide-react';
 
+export const metadata = {
+  title: "Avataq.ai | Autonomous Software Teams",
+  description: "Revolutionizing startup development with AI-powered autonomous teams.",
+};
+
 const AvataqPage = () => {
   const features = [
     {
