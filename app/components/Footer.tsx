@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-black via-gray-900 to-black text-white relative z-10 overflow-hidden">
+    <footer className="bg-gray-900 text-white relative z-10 overflow-hidden">
       {/* Newsletter Section */}
       <div className="border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -198,25 +198,6 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
-                Get in Touch
-              </button>
-              <a 
-                href="https://sri-ram-micro.vercel.app" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-white text-sm transition-colors"
-              >
-                Mobile Site
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </footer>
   );
