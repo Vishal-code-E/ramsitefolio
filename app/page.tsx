@@ -56,7 +56,6 @@ export default function Home() {
             <Projects />
             <Testimonials />
             <BlogSection />
-            <NewsletterSignup />
             <GalleryLink />
             <Contact />
           </LightRaysBackground>
