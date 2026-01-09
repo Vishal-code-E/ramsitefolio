@@ -20,9 +20,6 @@ const navItems = [
   { label: 'ABOUT', href: '#about' },
   { label: 'EXPERIENCE', href: '#experience' },
   { label: 'PROJECTS', href: '#projects' },
-  { label: 'TESTIMONIALS', href: '#testimonials' },
-  { label: 'BLOG', href: '#blog' },
-  { label: 'GALLERY', href: '#gallery' },
   { label: 'CONTACT', href: '#contact' },
 ];
 
@@ -59,7 +56,6 @@ export default function Home() {
             <Projects />
             <Testimonials />
             <BlogSection />
-            <NewsletterSignup />
             <GalleryLink />
             <Contact />
           </LightRaysBackground>
