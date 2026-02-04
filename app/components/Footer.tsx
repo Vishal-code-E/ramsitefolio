@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Send } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState('');
 
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(sectionId);

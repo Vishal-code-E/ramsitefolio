@@ -8,7 +8,6 @@ import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import BlogSection from './components/BlogSection';
 import GalleryLink from './components/GalleryLink';
-import NewsletterSignup from './components/NewsletterSignup';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LightRaysBackground from './components/LightRaysBackground';
