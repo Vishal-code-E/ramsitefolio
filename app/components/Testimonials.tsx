@@ -50,7 +50,7 @@ const Testimonials = () => {
                         What People Say
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Testimonials from clients and collaborators I've worked with
+                        Testimonials from clients and collaborators I&apos;ve worked with
                     </p>
                     <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mt-4 rounded-full" />
                 </div>

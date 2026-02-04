@@ -1,26 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Send, CheckCircle, Loader2 } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 export default function NewsletterSignup() {
-    const [email, setEmail] = useState('');
-    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!email) return;
-
-        setStatus('loading');
-
-        // Simulate API call
-        setTimeout(() => {
-            setStatus('success');
-            setEmail('');
-        }, 1500);
-    };
-
     return (
         <section className="py-20 relative overflow-hidden">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
