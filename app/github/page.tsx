@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const GitHubPage = () => {
   return (
-      <main className="text-white min-h-screen">
+      <main className="bg-[#0a0e27] text-white min-h-screen">
       <div className="max-w-4xl mx-auto px-4 py-20">
         {/* Back Button */}
         <Link 

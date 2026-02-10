@@ -29,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-[#0a0e27] text-white min-h-screen">
       {!showContent && <LoadingAnimation onComplete={handleLoadingComplete} />}
 
       {showContent && (

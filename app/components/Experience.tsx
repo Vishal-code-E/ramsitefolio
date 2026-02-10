@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
-import LightRaysBackground from "./LightRaysBackground";
 
 const Experience = () => {
   const data = [
@@ -164,7 +163,6 @@ const Experience = () => {
   ];
 
   return (
-    <LightRaysBackground>
       <section id="experience" className="w-full bg-transparent">
         <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
           <div className="text-center mb-12">
@@ -179,7 +177,6 @@ const Experience = () => {
         </div>
         <Timeline data={data} />
       </section>
-    </LightRaysBackground>
   );
 };
 

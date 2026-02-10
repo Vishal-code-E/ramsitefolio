@@ -87,7 +87,7 @@ export default function GalleryPage() {
   }, []);
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-[#0a0e27] text-white min-h-screen">
       {/* Back Button */}
       <div className="fixed top-6 left-6 z-50">
         <Link

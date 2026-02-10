@@ -1,12 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import LightRaysBackground from '../components/LightRaysBackground';
 import Timeline from '../components/Timeline';
 
 const ECellPage = () => {
   return (
-    <LightRaysBackground>
-      <main className="text-white min-h-screen">
+      <main className="bg-[#0a0e27] text-white min-h-screen">
         <div className="max-w-4xl mx-auto px-4 py-20">
           {/* Back Button */}
           <Link
@@ -225,7 +223,7 @@ const ECellPage = () => {
           </div>
         </div>
       </main>
-    </LightRaysBackground>
+
   );
 };
 

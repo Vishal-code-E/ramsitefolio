@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import LightRaysBackground from '../components/LightRaysBackground';
 import { ArrowLeft, Bot, Zap, Target, TrendingUp, Cpu, Brain, Layout, Server, Cloud, Github, ArrowRight, Quote, Calendar } from 'lucide-react';
 
 export const metadata = {
@@ -64,8 +63,7 @@ const AvataqPage = () => {
   ];
 
   return (
-    <LightRaysBackground>
-      <main className="text-white min-h-screen">
+      <main className="bg-[#0a0e27] text-white min-h-screen">
         <div className="max-w-4xl mx-auto px-4 py-20">
           {/* Back Button */}
           <Link
@@ -191,8 +189,7 @@ const AvataqPage = () => {
             </div>
           </div>
         </div>
-      </main >
-    </LightRaysBackground >
+    </main>
   );
 };
 
