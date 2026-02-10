@@ -83,9 +83,9 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-16">
+    <section id="projects" className="py-20 w-full relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
             Featured Projects
           </h2>
@@ -94,9 +94,9 @@ const Projects = () => {
           </p>
         </div>
         
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32 -mt-20">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Project Details Section - LEFT SIDE */}
-          <div className="relative h-[650px] flex items-center px-8 lg:px-12 order-2 lg:order-1">
+          <div className="relative min-h-[500px] lg:h-[650px] flex items-center px-4 sm:px-8 lg:px-12 order-2 lg:order-1">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProject}
@@ -163,7 +163,7 @@ const Projects = () => {
           </div>
 
           {/* Card Swap Section - RIGHT SIDE */}
-          <div className="flex justify-center lg:justify-start relative h-[650px] order-1 lg:order-2">
+          <div className="flex justify-center lg:justify-start relative min-h-[500px] lg:h-[650px] order-1 lg:order-2">
             <CardSwap
               width={600}
               height={500}
@@ -217,15 +217,17 @@ const Projects = () => {
         </div>
 
         {/* Technology Stack - Icon Cloud */}
-        <div className="mt-20 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
-            Technology Stack
-          </h3>
-          <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto">
-            Technologies and tools I use to build amazing projects
-          </p>
+        <div className="mt-32 pt-12 border-t border-white/10">
+          <div className="text-center mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Technology Stack
+            </h3>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Technologies and tools I use to build amazing projects
+            </p>
+          </div>
           
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center">
             <div className="relative">
               <IconCloud 
                 width={500}
@@ -259,9 +261,11 @@ const Projects = () => {
             </div>
           </div>
           
-          <p className="text-gray-400 text-sm mt-6">
-            Click and drag to explore • Interactive 3D technology sphere
-          </p>
+          <div className="text-center mt-8">
+            <p className="text-gray-400 text-sm">
+              Click and drag to explore • Interactive 3D technology sphere
+            </p>
+          </div>
         </div>
       </div>
     </section>

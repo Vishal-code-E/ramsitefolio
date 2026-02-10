@@ -163,9 +163,9 @@ const Experience = () => {
   ];
 
   return (
-      <section id="experience" className="w-full bg-transparent">
-        <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-          <div className="text-center mb-12">
+      <section id="experience" className="py-20 w-full bg-transparent">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Professional Experience & Leadership
             </h2>

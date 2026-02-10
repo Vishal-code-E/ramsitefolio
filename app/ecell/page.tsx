@@ -4,8 +4,8 @@ import Timeline from '../components/Timeline';
 
 const ECellPage = () => {
   return (
-      <main className="bg-[#0a0e27] text-white min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 py-20">
+      <main className="bg-[#0a0e27] text-white min-h-screen py-10">
+        <div className="max-w-5xl mx-auto px-4 py-20">
           {/* Back Button */}
           <Link
             href="/#about"
@@ -108,9 +108,9 @@ const ECellPage = () => {
           <Timeline />
 
           {/* Achievements */}
-          <div className="mt-16">
+          <div className="mt-20 pt-8">
             <h2 className="text-3xl font-bold text-center mb-12">Key Achievements</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <div className="space-y-6">
                 <div className="border-l-4 border-blue-500 pl-6">
                   <h3 className="font-bold text-lg mb-2">🚀 50+ Startup Ideas Incubated</h3>
@@ -196,8 +196,8 @@ const ECellPage = () => {
           </div>
 
           {/* Visit E-Cell */}
-          <div className="mt-16 text-center">
-            <div className="bg-linear-to-r from-red-500/10 to-pink-600/10 p-8 rounded-2xl border border-red-500/20">
+          <div className="mt-20 text-center">
+            <div className="bg-linear-to-r from-red-500/10 to-pink-600/10 p-8 rounded-2xl border border-red-500/20 max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold mb-4">Join the Entrepreneurial Revolution</h2>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                 Be part of a community that&apos;s shaping the future of entrepreneurship. Connect with like-minded

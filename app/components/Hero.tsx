@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
       {/* Development Popup */}
       <DevelopmentPopup />
       

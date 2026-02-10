@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const PromptCraftPage = () => {
   return (
-      <main className="bg-[#0a0e27] text-white min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 py-20">
+      <main className="bg-[#0a0e27] text-white min-h-screen py-10">
+      <div className="max-w-5xl mx-auto px-4 py-20">
         {/* Back Button */}
         <Link 
           href="/#about" 
@@ -102,9 +102,9 @@ const PromptCraftPage = () => {
         </div>
 
         {/* AI Models Integration */}
-        <div className="mt-16">
+        <div className="mt-20 pt-8">
           <h2 className="text-3xl font-bold text-center mb-12">Integrated AI Models</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center">
               <div className="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-green-400" fill="currentColor" viewBox="0 0 24 24">
@@ -144,9 +144,9 @@ const PromptCraftPage = () => {
         </div>
 
         {/* Use Cases */}
-        <div className="mt-16">
+        <div className="mt-20 pt-8">
           <h2 className="text-3xl font-bold text-center mb-12">Real-World Applications</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="space-y-6">
               <div className="border-l-4 border-yellow-500 pl-6">
                 <h3 className="font-bold text-lg mb-2">📝 Content Marketing</h3>
@@ -196,8 +196,8 @@ const PromptCraftPage = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-linear-to-r from-yellow-500/10 to-orange-600/10 p-8 rounded-2xl border border-yellow-500/20">
+        <div className="mt-20 text-center">
+          <div className="bg-linear-to-r from-yellow-500/10 to-orange-600/10 p-8 rounded-2xl border border-yellow-500/20 max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-4">Experience the Future of AI</h2>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Transform your business processes with cutting-edge generative AI. Prompt Craft makes 

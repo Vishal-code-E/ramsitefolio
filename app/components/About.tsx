@@ -3,10 +3,10 @@ import ScrambledText from './ScrambledText';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 min-h-screen">
-      <div className="w-full">
+    <section id="about" className="py-20 min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-7xl mx-auto px-4">
         {/* About Text Section */}
-        <div className="text-center mb-20 px-4 sm:px-6 md:px-8">
+        <div className="text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6">
             About Me
           </h2>

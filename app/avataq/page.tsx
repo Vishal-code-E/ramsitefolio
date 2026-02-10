@@ -63,8 +63,8 @@ const AvataqPage = () => {
   ];
 
   return (
-      <main className="bg-[#0a0e27] text-white min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 py-20">
+      <main className="bg-[#0a0e27] text-white min-h-screen py-10">
+        <div className="max-w-5xl mx-auto px-4 py-20">
           {/* Back Button */}
           <Link
             href="/#about"
@@ -144,7 +144,7 @@ const AvataqPage = () => {
           {/* Technology Stack */}
           <div className="mt-16">
             <h2 className="text-3xl font-bold text-center mb-12">Technology Stack</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
               {techStack.map((tech, index) => (
                 <div key={index} className="text-center group hover:-translate-y-1 transition-transform duration-300">
                   <div className={`w-16 h-16 ${tech.bg} rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
@@ -161,8 +161,8 @@ const AvataqPage = () => {
 
 
           {/* Call to Action */}
-          <div className="mt-16 text-center">
-            <div className="bg-linear-to-r from-purple-500/10 to-blue-600/10 p-8 rounded-2xl border border-purple-500/20">
+          <div className="mt-20 text-center">
+            <div className="bg-linear-to-r from-purple-500/10 to-blue-600/10 p-8 rounded-2xl border border-purple-500/20 max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Startup?</h2>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                 Join the future of software development with autonomous AI teams that work around
