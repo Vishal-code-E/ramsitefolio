@@ -7,6 +7,12 @@ import { Images } from 'lucide-react';
 export default function GalleryLink() {
   return (
     <section className="py-20 relative overflow-hidden">
+      {/* Dark Background Glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-black/50 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-950/40 rounded-full blur-3xl"></div>
+      </div>
+      
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -87,7 +87,14 @@ export default function GalleryPage() {
   }, []);
 
   return (
-    <main className="bg-[#0a0e27] text-white min-h-screen">
+    <main className="bg-[#0a0e27] text-white min-h-screen relative overflow-hidden">
+      {/* Dark Blue Glow Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-900/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-black/50 rounded-full blur-3xl"></div>
+      </div>
+      
       {/* Back Button */}
       <div className="fixed top-6 left-6 z-50">
         <Link

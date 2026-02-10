@@ -29,7 +29,12 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-[#0a0e27] text-white min-h-screen">
+    <main className="bg-[#0a0e27] text-white min-h-screen relative overflow-hidden">
+      {/* Global Background Glow Pattern */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-950/20 via-transparent to-black/30"></div>
+      </div>
+      
       {!showContent && <LoadingAnimation onComplete={handleLoadingComplete} />}
 
       {showContent && (

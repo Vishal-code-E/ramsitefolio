@@ -3,8 +3,14 @@ import Link from 'next/link';
 
 const GitHubPage = () => {
   return (
-      <main className="bg-[#0a0e27] text-white min-h-screen py-10">
-      <div className="max-w-5xl mx-auto px-4 py-20">
+      <main className="bg-[#0a0e27] text-white min-h-screen py-10 relative overflow-hidden">
+      {/* Dark Blue Glow Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-0 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-black/50 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-5xl mx-auto px-4 py-20 relative z-10">
         {/* Back Button */}
         <Link 
           href="/#about" 

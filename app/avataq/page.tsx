@@ -63,8 +63,15 @@ const AvataqPage = () => {
   ];
 
   return (
-      <main className="bg-[#0a0e27] text-white min-h-screen py-10">
-        <div className="max-w-5xl mx-auto px-4 py-20">
+      <main className="bg-[#0a0e27] text-white min-h-screen py-10 relative overflow-hidden">
+        {/* Dark Glow Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-purple-900/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-950/40 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-black/50 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-5xl mx-auto px-4 py-20 relative z-10">
           {/* Back Button */}
           <Link
             href="/#about"

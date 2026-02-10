@@ -3,8 +3,14 @@ import ScrambledText from './ScrambledText';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-7xl mx-auto px-4">
+    <section id="about" className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Dark Blue Glow Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-40 -left-20 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-purple-900/30 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="w-full max-w-7xl mx-auto px-4 relative z-10">
         {/* About Text Section */}
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6">

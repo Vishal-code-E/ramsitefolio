@@ -163,8 +163,14 @@ const Experience = () => {
   ];
 
   return (
-      <section id="experience" className="py-20 w-full bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
+      <section id="experience" className="py-20 w-full bg-transparent relative overflow-hidden">
+        {/* Dark Blue Glow Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-800/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-800/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Professional Experience & Leadership
