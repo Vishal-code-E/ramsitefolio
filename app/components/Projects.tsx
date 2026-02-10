@@ -179,7 +179,7 @@ const Projects = () => {
               delay={5000}
               pauseOnHover={true}
               skewAmount={5}
-              easing="cubic-bezier(0.4, 0, 0.2, 1)"
+              easing="linear"
               onCardSwap={handleCardSwap}
               onCardClick={(idx) => setActiveProject(idx)}
             >
