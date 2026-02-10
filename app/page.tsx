@@ -10,7 +10,6 @@ import BlogSection from './components/BlogSection';
 import GalleryLink from './components/GalleryLink';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import LightRaysBackground from './components/LightRaysBackground';
 import PillNav from './components/PillNav';
 import LoadingAnimation from './components/LoadingAnimation';
 
@@ -44,20 +43,17 @@ export default function Home() {
             pillTextColor="#1a1a1a"
           />
 
-          <LightRaysBackground>
-            <Hero />
-            <About />
-          </LightRaysBackground>
+          <Hero />
+          <About />
 
           <Experience />
 
-          <LightRaysBackground>
-            <Projects />
-            <Testimonials />
-            <BlogSection />
-            <GalleryLink />
-            <Contact />
-          </LightRaysBackground>
+          <Projects />
+          <Testimonials />
+          <BlogSection />
+          <GalleryLink />
+          <Contact />
+
           <Footer />
         </>
       )}

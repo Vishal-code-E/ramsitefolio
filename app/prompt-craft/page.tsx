@@ -1,10 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import LightRaysBackground from '../components/LightRaysBackground';
 
 const PromptCraftPage = () => {
   return (
-    <LightRaysBackground>
       <main className="text-white min-h-screen">
       <div className="max-w-4xl mx-auto px-4 py-20">
         {/* Back Button */}
@@ -223,7 +221,6 @@ const PromptCraftPage = () => {
         </div>
       </div>
     </main>
-    </LightRaysBackground>
   );
 };
 

@@ -1,10 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import LightRaysBackground from '../components/LightRaysBackground';
 
 const GitHubPage = () => {
   return (
-    <LightRaysBackground>
       <main className="text-white min-h-screen">
       <div className="max-w-4xl mx-auto px-4 py-20">
         {/* Back Button */}
@@ -118,7 +116,6 @@ const GitHubPage = () => {
         </div>
       </div>
     </main>
-    </LightRaysBackground>
   );
 };
 
