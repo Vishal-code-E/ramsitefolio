@@ -1,39 +1,5 @@
 import React from 'react';
 import ScrambledText from './ScrambledText';
-import InfiniteMenu from './InfiniteMenu';
-
-const menuItems = [
-  {
-    image: '/img1.jpg',
-    link: '',
-    title: 'GitHub',
-    description: 'Check out my code repositories and open source contributions'
-  },
-  {
-    image: '/img2.jpg',
-    link: '',
-    title: 'LinkedIn',
-    description: 'Connect with me professionally and see my career journey'
-  },
-  {
-    image: '/img3.jpg',
-    title: 'Avataq.ai',
-    link: '',
-    description: 'Autonomous software teams for startups - my AI venture'
-  },
-  {
-    image: '/img4.jpg',
-    title: 'Prompt Craft',
-    link: '',
-    description: 'Cutting-edge generative AI solutions platform'
-  },
-  {
-    image: '/img5.jpg',
-    title: 'E-Cell',
-    link: '',
-    description: 'Leading entrepreneurship initiatives at Raghu Engineering College'
-  }
-];
 
 const About = () => {
   return (
@@ -84,23 +50,6 @@ const About = () => {
                 Get in Touch
               </a>
             </div>
-          </div>
-        </div>
-        
-        {/* Infinite Menu Section */}
-        <div className="w-screen h-screen relative -mx-4 sm:-mx-6 md:-mx-8">
-          <div className="absolute top-4 left-0 right-0 z-10 text-center px-4 sm:px-6 md:px-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Explore My Journey
-            </h3>
-            <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-purple-500 mx-auto mb-4"></div>
-            <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl">
-              Drag to rotate and explore my projects, achievements, and ventures
-            </p>
-          </div>
-          
-          <div className="w-full h-full">
-            <InfiniteMenu items={menuItems} />
           </div>
         </div>
       </div>
