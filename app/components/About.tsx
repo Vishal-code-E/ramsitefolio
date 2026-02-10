@@ -1,46 +1,18 @@
 import React from 'react';
 import ScrambledText from './ScrambledText';
-import InfiniteMenu from './InfiniteMenu';
-
-const menuItems = [
-  {
-    image: '/img1.jpg',
-    link: '',
-    title: 'GitHub',
-    description: 'Check out my code repositories and open source contributions'
-  },
-  {
-    image: '/img2.jpg',
-    link: '',
-    title: 'LinkedIn',
-    description: 'Connect with me professionally and see my career journey'
-  },
-  {
-    image: '/img3.jpg',
-    title: 'Avataq.ai',
-    link: '',
-    description: 'Autonomous software teams for startups - my AI venture'
-  },
-  {
-    image: '/img4.jpg',
-    title: 'Prompt Craft',
-    link: '',
-    description: 'Cutting-edge generative AI solutions platform'
-  },
-  {
-    image: '/img5.jpg',
-    title: 'E-Cell',
-    link: '',
-    description: 'Leading entrepreneurship initiatives at Raghu Engineering College'
-  }
-];
 
 const About = () => {
   return (
-    <section id="about" className="py-20 min-h-screen">
-      <div className="w-full">
+    <section id="about" className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Dark Blue Glow Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-40 -left-20 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-purple-900/30 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="w-full max-w-7xl mx-auto px-4 relative z-10">
         {/* About Text Section */}
-        <div className="text-center mb-20 px-4 sm:px-6 md:px-8">
+        <div className="text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6">
             About Me
           </h2>
@@ -84,23 +56,6 @@ const About = () => {
                 Get in Touch
               </a>
             </div>
-          </div>
-        </div>
-        
-        {/* Infinite Menu Section */}
-        <div className="w-screen h-screen relative -mx-4 sm:-mx-6 md:-mx-8">
-          <div className="absolute top-4 left-0 right-0 z-10 text-center px-4 sm:px-6 md:px-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Explore My Journey
-            </h3>
-            <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-purple-500 mx-auto mb-4"></div>
-            <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl">
-              Drag to rotate and explore my projects, achievements, and ventures
-            </p>
-          </div>
-          
-          <div className="w-full h-full">
-            <InfiniteMenu items={menuItems} />
           </div>
         </div>
       </div>

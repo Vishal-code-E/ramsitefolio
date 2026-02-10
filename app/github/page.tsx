@@ -1,12 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import LightRaysBackground from '../components/LightRaysBackground';
 
 const GitHubPage = () => {
   return (
-    <LightRaysBackground>
-      <main className="text-white min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 py-20">
+      <main className="bg-[#0a0e27] text-white min-h-screen py-10 relative overflow-hidden">
+      {/* Dark Blue Glow Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-0 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-black/50 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-5xl mx-auto px-4 py-20 relative z-10">
         {/* Back Button */}
         <Link 
           href="/#about" 
@@ -34,7 +38,7 @@ const GitHubPage = () => {
         </div>
 
         {/* Content */}
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>
             <h2 className="text-2xl font-bold mb-6">My Coding Journey</h2>
             <p className="text-gray-300 mb-6">
@@ -66,7 +70,7 @@ const GitHubPage = () => {
           
           <div>
             <h2 className="text-2xl font-bold mb-6">Featured Repositories</h2>
-            <div className="space-y-4">
+            <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
               <div className="bg-white/5 p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
                 <h3 className="font-bold mb-2">🤖 Avataq.ai Platform</h3>
                 <p className="text-gray-300 text-sm mb-3">
@@ -118,7 +122,6 @@ const GitHubPage = () => {
         </div>
       </div>
     </main>
-    </LightRaysBackground>
   );
 };
 

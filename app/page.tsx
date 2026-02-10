@@ -10,7 +10,6 @@ import BlogSection from './components/BlogSection';
 import GalleryLink from './components/GalleryLink';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import LightRaysBackground from './components/LightRaysBackground';
 import PillNav from './components/PillNav';
 import LoadingAnimation from './components/LoadingAnimation';
 
@@ -30,7 +29,12 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-[#0a0e27] text-white min-h-screen relative overflow-hidden">
+      {/* Global Background Glow Pattern */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-950/20 via-transparent to-black/30"></div>
+      </div>
+      
       {!showContent && <LoadingAnimation onComplete={handleLoadingComplete} />}
 
       {showContent && (
@@ -44,20 +48,17 @@ export default function Home() {
             pillTextColor="#1a1a1a"
           />
 
-          <LightRaysBackground>
-            <Hero />
-            <About />
-          </LightRaysBackground>
+          <Hero />
+          <About />
 
           <Experience />
 
-          <LightRaysBackground>
-            <Projects />
-            <Testimonials />
-            <BlogSection />
-            <GalleryLink />
-            <Contact />
-          </LightRaysBackground>
+          <Projects />
+          <Testimonials />
+          <BlogSection />
+          <GalleryLink />
+          <Contact />
+
           <Footer />
         </>
       )}

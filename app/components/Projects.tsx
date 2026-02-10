@@ -83,9 +83,16 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-16">
+    <section id="projects" className="py-20 w-full relative overflow-hidden">
+      {/* Dark Blue Glow Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
             Featured Projects
           </h2>
@@ -94,16 +101,16 @@ const Projects = () => {
           </p>
         </div>
         
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32 -mt-20">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Project Details Section - LEFT SIDE */}
-          <div className="relative h-[650px] flex items-center px-8 lg:px-12 order-2 lg:order-1">
+          <div className="relative min-h-[500px] lg:h-[650px] flex items-center px-4 sm:px-8 lg:px-12 order-2 lg:order-1">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProject}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
                 className="space-y-6"
               >
                 {/* Icon and Title */}
@@ -136,7 +143,7 @@ const Projects = () => {
                       key={idx}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: idx * 0.1 }}
+                      transition={{ duration: 0.2, delay: idx * 0.05 }}
                       className="flex items-start gap-3"
                     >
                       <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${projects[activeProject].color} mt-2`} />
@@ -163,28 +170,29 @@ const Projects = () => {
           </div>
 
           {/* Card Swap Section - RIGHT SIDE */}
-          <div className="flex justify-center lg:justify-start relative h-[650px] order-1 lg:order-2">
+          <div className="flex justify-center lg:justify-start relative min-h-[500px] lg:h-[650px] order-1 lg:order-2">
             <CardSwap
               width={600}
               height={500}
               cardDistance={70}
               verticalDistance={80}
-              delay={4000}
+              delay={5000}
               pauseOnHover={true}
               skewAmount={5}
-              easing="elastic"
+              easing="linear"
               onCardSwap={handleCardSwap}
               onCardClick={(idx) => setActiveProject(idx)}
             >
               {projects.map((project, idx) => (
                 <Card 
                   key={idx} 
-                  customClass="p-10 backdrop-blur-xl bg-gradient-to-br from-black/80 via-purple-900/20 to-black/80 border-2 border-white/20 shadow-2xl shadow-purple-500/20"
+                  customClass="p-10 backdrop-blur-xl bg-gradient-to-br from-black/95 via-blue-950/30 to-black/95 border-2 border-blue-900/30 shadow-2xl shadow-blue-950/50"
                   onClick={() => setActiveProject(idx)}
                 >
                   <div className="h-full flex flex-col justify-between relative">
-                    {/* Decorative gradient orb */}
+                    {/* Multiple Decorative gradient orbs for depth */}
                     <div className={`absolute -top-6 -right-6 w-32 h-32 bg-linear-to-br ${project.color} rounded-full blur-3xl opacity-30`} />
+                    <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-900/40 rounded-full blur-2xl" />
                     
                     <div className="relative z-10">
                       <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6 bg-linear-to-r ${project.color} text-white shadow-lg`}>
@@ -217,15 +225,22 @@ const Projects = () => {
         </div>
 
         {/* Technology Stack - Icon Cloud */}
-        <div className="mt-20 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
-            Technology Stack
-          </h3>
-          <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto">
-            Technologies and tools I use to build amazing projects
-          </p>
+        <div className="mt-32 pt-12 border-t border-blue-900/30 relative">
+          {/* Glow Effect for Tech Stack */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
+          </div>
           
-          <div className="flex justify-center">
+          <div className="text-center mb-16 relative z-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Technology Stack
+            </h3>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Technologies and tools I use to build amazing projects
+            </p>
+          </div>
+          
+          <div className="flex justify-center items-center">
             <div className="relative">
               <IconCloud 
                 width={500}
@@ -259,9 +274,11 @@ const Projects = () => {
             </div>
           </div>
           
-          <p className="text-gray-400 text-sm mt-6">
-            Click and drag to explore • Interactive 3D technology sphere
-          </p>
+          <div className="text-center mt-8">
+            <p className="text-gray-400 text-sm">
+              Click and drag to explore • Interactive 3D technology sphere
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -14,9 +14,15 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white relative z-10 overflow-hidden">
+    <footer className="bg-gradient-to-b from-gray-900 to-black text-white relative z-10 overflow-hidden">
+      {/* Dark Blue Glow Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-950/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-950/30 rounded-full blur-3xl"></div>
+      </div>
+      
       {/* Newsletter Section */}
-      <div className="border-b border-gray-800">
+      <div className="border-b border-gray-800 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
