@@ -25,7 +25,7 @@ const PromptCraftPage = () => {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="w-20 h-20 bg-linear-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
@@ -53,7 +53,7 @@ const PromptCraftPage = () => {
               expertise.
             </p>
             
-            <div className="bg-linear-to-r from-yellow-500/20 to-orange-600/20 p-6 rounded-xl border border-yellow-500/30">
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-600/20 p-6 rounded-xl border border-yellow-500/30">
               <h3 className="font-bold text-lg mb-3">✨ Core Philosophy</h3>
               <p className="text-gray-300 text-sm">
                 &quot;AI should enhance human creativity and productivity, not replace it. Prompt Craft makes 
@@ -204,7 +204,7 @@ const PromptCraftPage = () => {
 
         {/* Call to Action */}
         <div className="mt-20 text-center">
-          <div className="bg-linear-to-r from-yellow-500/10 to-orange-600/10 p-8 rounded-2xl border border-yellow-500/20 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-yellow-500/10 to-orange-600/10 p-8 rounded-2xl border border-yellow-500/20 max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-4">Experience the Future of AI</h2>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Transform your business processes with cutting-edge generative AI. Prompt Craft makes 

@@ -1075,12 +1075,10 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
       if (!items.length) return;
       const itemIndex = index % items.length;
       // Active item handling can be used for external state if needed
-      console.log('Active item:', items[itemIndex]);
     };
 
     const handleMovement = (isMoving: boolean) => {
       // Movement handling can be used for external state if needed
-      console.log('Movement:', isMoving);
     };
 
     if (canvas) {

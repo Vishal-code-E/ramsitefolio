@@ -113,7 +113,7 @@ export default function GalleryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Heading */}
           <div className="text-center mb-16 gallery-heading pt-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-linear-to-r from-white to-white/60 mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-4">
               Gallery
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -136,7 +136,7 @@ export default function GalleryPage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
           </div>
@@ -145,11 +145,11 @@ export default function GalleryPage() {
         {/* Lightbox Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 z-9999 bg-black/95 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-6 right-6 text-white text-4xl hover:text-purple-400 transition-colors z-10000"
+              className="absolute top-6 right-6 text-white text-4xl hover:text-purple-400 transition-colors z-[10000]"
               onClick={() => setSelectedImage(null)}
             >
               ×

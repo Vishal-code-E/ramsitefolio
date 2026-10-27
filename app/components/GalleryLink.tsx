@@ -27,7 +27,7 @@ export default function GalleryLink() {
           </div>
 
           <Images className="w-16 h-16 mx-auto mb-4 text-purple-400" />
-          <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-white to-white/60 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-4">
             Gallery
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto text-lg">

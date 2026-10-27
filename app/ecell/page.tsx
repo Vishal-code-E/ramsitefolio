@@ -26,7 +26,7 @@ const ECellPage = () => {
 
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="w-20 h-20 bg-linear-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L13.09 8.26L22 9L13.09 15.74L12 22L10.91 15.74L2 9L10.91 8.26L12 2Z" />
               </svg>
@@ -55,7 +55,7 @@ const ECellPage = () => {
                 successful ventures. We&apos;ve created a platform where creativity meets opportunity.
               </p>
 
-              <div className="bg-linear-to-r from-red-500/20 to-pink-600/20 p-6 rounded-xl border border-red-500/30">
+              <div className="bg-gradient-to-r from-red-500/20 to-pink-600/20 p-6 rounded-xl border border-red-500/30">
                 <h3 className="font-bold text-lg mb-3">🎯 Our Mission</h3>
                 <p className="text-gray-300 text-sm">
                   &quot;To inspire, educate, and empower the next generation of entrepreneurs by providing
@@ -204,7 +204,7 @@ const ECellPage = () => {
 
           {/* Visit E-Cell */}
           <div className="mt-20 text-center">
-            <div className="bg-linear-to-r from-red-500/10 to-pink-600/10 p-8 rounded-2xl border border-red-500/20 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-red-500/10 to-pink-600/10 p-8 rounded-2xl border border-red-500/20 max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold mb-4">Join the Entrepreneurial Revolution</h2>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                 Be part of a community that&apos;s shaping the future of entrepreneurship. Connect with like-minded

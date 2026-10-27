@@ -1,27 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { Inter } from "next/font/google";
+import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Ram's portfolio",
-  description: "Explore Ram's projects, skills, and experiences in software development.",
+  title: "Sri Ram | Full Stack Developer & AI Entrepreneur",
+  description: "Portfolio of Sri Ram — Full Stack Developer, AI Entrepreneur, and President of E-Cell REC. Building Avataq.ai and PromptCraft.",
 };
 
 export default function RootLayout({
@@ -31,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${inter.className}`}
-      >
+      <body className={`${inter.className} antialiased`}>
         <SmoothScroll />
         {children}
       </body>

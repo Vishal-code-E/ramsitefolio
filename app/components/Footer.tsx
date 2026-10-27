@@ -135,14 +135,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources Column */}
+          {/* Connect Column */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Resources</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">Connect</h4>
             <ul className="space-y-3">
               <li>
-                <a 
-                  href="https://agenticaiavataq.hashnode.dev" 
-                  target="_blank" 
+                <a
+                  href="https://agenticaiavataq.hashnode.dev"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200"
                 >
@@ -150,13 +150,34 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <span className="text-gray-400">Documentation</span>
+                <a
+                  href="https://github.com/Vishal-code-E"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200"
+                >
+                  GitHub
+                </a>
               </li>
               <li>
-                <span className="text-gray-400">Case Studies</span>
+                <a
+                  href="https://www.linkedin.com/in/vishal-epu-646822222/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200"
+                >
+                  LinkedIn
+                </a>
               </li>
               <li>
-                <span className="text-gray-400">Tutorials</span>
+                <a
+                  href="https://wa.me/919490147819"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200"
+                >
+                  WhatsApp
+                </a>
               </li>
             </ul>
           </div>
@@ -169,24 +190,18 @@ const Footer = () => {
               © {currentYear} Sri Ram. Crafted with passion and code.
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
-              <a 
-                href="#" 
-                className="text-gray-500 hover:text-white text-sm transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a 
-                href="#" 
-                className="text-gray-500 hover:text-white text-sm transition-colors"
-              >
-                Terms of Service
-              </a>
-              <button 
-                onClick={() => scrollToSection('#contact')} 
+              <button
+                onClick={() => scrollToSection('#contact')}
                 className="text-gray-500 hover:text-white text-sm transition-colors bg-transparent border-0 p-0 cursor-pointer"
               >
                 Get in Touch
               </button>
+              <a
+                href="mailto:sriram182719@gmail.com"
+                className="text-gray-500 hover:text-white text-sm transition-colors"
+              >
+                sriram182719@gmail.com
+              </a>
             </div>
           </div>
 

@@ -71,7 +71,7 @@ const Hero = () => {
               {/* Greeting with SplitText - Positioned to align H with S */}
               <div className="absolute top-8 left-8 text-left">
                 <SplitText
-                  text="Hello , I'am"
+                  text="Hello, I'm"
                   className="text-3xl md:text-4xl text-gray-300 font-bold mb-2 tracking-wider"
                   delay={0.1}
                   stagger={0.2}
@@ -79,7 +79,7 @@ const Hero = () => {
                 />
                 <SplitText
                   text="Sri Ram"
-                  className="text-4xl md:text-5xl font-black bg-linear-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide"
+                  className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide"
                   delay={1.2}
                   stagger={0.08}
                   animation="scale"
@@ -95,8 +95,8 @@ const Hero = () => {
               {/* Image with clean base */}
               <div className="relative">
                 {/* Simple base/platform for the image */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-4 bg-linear-to-r from-transparent via-white/20 to-transparent rounded-full blur-sm"></div>
-                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-3/5 h-2 bg-linear-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-4 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full blur-sm"></div>
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-3/5 h-2 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
                 
                 {/* Image without background card */}
                 <Image

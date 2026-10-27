@@ -83,10 +83,10 @@ const AvataqPage = () => {
 
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="w-20 h-20 bg-linear-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Bot className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-purple-400 to-blue-400">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
               Avataq.ai
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -115,7 +115,7 @@ const AvataqPage = () => {
                 core technology products.
               </p>
 
-              <div className="bg-linear-to-r from-purple-500/20 to-blue-600/20 p-6 rounded-xl border border-purple-500/30 relative overflow-hidden">
+              <div className="bg-gradient-to-r from-purple-500/20 to-blue-600/20 p-6 rounded-xl border border-purple-500/30 relative overflow-hidden">
                 <Quote className="absolute top-4 right-4 w-12 h-12 text-purple-500/10 rotate-180" />
                 <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
                   <Target className="w-5 h-5 text-purple-400" />
@@ -169,7 +169,7 @@ const AvataqPage = () => {
 
           {/* Call to Action */}
           <div className="mt-20 text-center">
-            <div className="bg-linear-to-r from-purple-500/10 to-blue-600/10 p-8 rounded-2xl border border-purple-500/20 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-purple-500/10 to-blue-600/10 p-8 rounded-2xl border border-purple-500/20 max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Startup?</h2>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                 Join the future of software development with autonomous AI teams that work around

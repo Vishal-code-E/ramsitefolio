@@ -70,7 +70,7 @@ export default function DevelopmentPopup() {
               </div>
 
               {/* Divider */}
-              <div className="h-px bg-linear-to-r from-transparent via-white/20 to-transparent mb-4" />
+              <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-4" />
 
               {/* Content */}
               <p className="text-sm text-gray-300 leading-relaxed mb-6">

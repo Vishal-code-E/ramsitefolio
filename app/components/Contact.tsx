@@ -47,7 +47,6 @@ const Contact = () => {
         setStatusMessage('🎉 Awesome! Your message just landed in my inbox. I\'ll hit you back real soon - let\'s make something incredible together!');
         (e.target as HTMLFormElement).reset();
         
-        console.log('Firing confetti!', confettiRef.current);
         
         // Fire confetti on success!
         confettiRef.current?.fire({
@@ -119,7 +118,7 @@ const Contact = () => {
             Have a project in mind or want to collaborate? I would love to hear from you. 
             Let us discuss how we can work together.
           </p>
-          <div className="w-20 h-1 bg-linear-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -291,7 +290,7 @@ const Contact = () => {
               )}
 
               <button
-                className="group/btn relative block h-12 w-full rounded-lg bg-linear-to-r from-blue-500 to-purple-500 font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="group/btn relative block h-12 w-full rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 type="submit"
                 disabled={isSubmitting}
               >
@@ -321,8 +320,8 @@ const Contact = () => {
 const BottomGradient = () => {
   return (
     <>
-      <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-linear-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-      <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-linear-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
+      <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+      <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
     </>
   );
 };

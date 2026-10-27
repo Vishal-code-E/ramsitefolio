@@ -133,7 +133,7 @@ const Timeline = () => {
     return (
         <div className="py-20 relative" ref={ref}>
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-purple-400 mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
                     My E-Cell Journey
                 </h2>
                 <p className="text-slate-400 max-w-2xl mx-auto">
@@ -147,7 +147,7 @@ const Timeline = () => {
                     {/* Filling Line */}
                     <motion.div
                         style={{ height: lineHeight }}
-                        className="w-full bg-linear-to-b from-blue-500 via-purple-500 to-pink-500"
+                        className="w-full bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"
                     />
                 </div>
 
