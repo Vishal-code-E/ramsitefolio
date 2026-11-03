@@ -12,15 +12,15 @@ Your contact form is now ready to send emails directly to your inbox! Follow the
 
 ## Step 2: Add Your Access Key to the Contact Form
 
-1. Open `/app/components/Contact.tsx`
-2. Find this line (around line 16):
+1. Open `/components/Contact.tsx`
+2. Find the `WEB3FORMS_KEY` constant near the top:
    ```typescript
-   const accessKey = 'YOUR_WEB3FORMS_ACCESS_KEY';
+   const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'
    ```
 3. Replace `'YOUR_WEB3FORMS_ACCESS_KEY'` with your actual key from Web3Forms
 4. It should look like:
    ```typescript
-   const accessKey = 'abc123def-your-actual-key-here';
+   const WEB3FORMS_KEY = 'abc123def-your-actual-key-here'
    ```
 
 ## Step 3: Test Your Form

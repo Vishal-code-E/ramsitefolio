@@ -1,42 +1,34 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import SmoothScroll from "./components/SmoothScroll";
+import type { Metadata, Viewport } from 'next'
+// self-hosted fonts (no Google Fonts round-trip)
+import '@fontsource/pixelify-sans/latin-500.css'
+import '@fontsource/pixelify-sans/latin-700.css'
+import '@fontsource/gochi-hand/latin-400.css'
+import '@fontsource/caveat/latin-500.css'
+import '@fontsource-variable/inter/index.css'
+import '@fontsource/jetbrains-mono/latin-500.css'
+import '@fontsource/jetbrains-mono/latin-700.css'
+import './globals.css'
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const description =
+  'Sri Ram — full-stack developer & AI entrepreneur. President of E-Cell REC, founder of Avataq.ai and PromptCraft. Turning bold ideas into validated products.'
 
 export const metadata: Metadata = {
-  title: "Ram's portfolio",
-  description: "Explore Ram's projects, skills, and experiences in software development.",
-};
+  title: { default: 'Sri Ram — Full Stack Developer & AI Entrepreneur', template: '%s · Sri Ram' },
+  description,
+  icons: { icon: '/favicon.svg' },
+  openGraph: {
+    title: 'Sri Ram — Full Stack Developer & AI Entrepreneur',
+    description: 'I turn bold ideas into validated products.',
+    images: ['/me-portrait.jpg'],
+  },
+}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = { themeColor: '#FAFAF7' }
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${inter.className}`}
-      >
-        <SmoothScroll />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
-  );
+  )
 }
