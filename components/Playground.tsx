@@ -32,10 +32,10 @@ function Item({ item }: { item: PlaygroundItem }) {
       return (
         <div className="relative overflow-hidden rounded-lg bg-ink p-3 font-mono text-[11px] leading-relaxed text-white shadow-card" style={{ width: item.w }}>
           <Tape color="yellow" className="-top-2 right-6 rotate-6" />
-          <p className="text-white/50">$ avataq run --team startup-mvp</p>
-          <p className="text-lime">✓ spec drafted by planner</p>
-          <p className="text-mustard">✓ 14 PRs opened by coder</p>
-          <p className="text-white/80">✓ 1 human review needed :)</p>
+          <p className="text-white/50">$ avataq run --check monthly-compliance</p>
+          <p className="text-lime">✓ 128 records reviewed</p>
+          <p className="text-mustard">✓ 6 filings drafted</p>
+          <p className="text-white/80">✓ 1 human sign-off needed :)</p>
           <p className="mt-1 text-white/40">
             done in 3.1s<span className="animate-pulse">▍</span>
           </p>
@@ -53,7 +53,7 @@ function Item({ item }: { item: PlaygroundItem }) {
         <div className="relative bg-ink p-4 shadow-card" style={{ width: item.w }}>
           <Tape color="mint" className="-top-2 left-1/2 -translate-x-1/2 rotate-2" />
           <p className="font-pixel text-[30px] font-bold leading-none text-lime">AVATAQ</p>
-          <p className="mt-2 text-[11px] leading-snug text-white/75">Autonomous software teams for startups.</p>
+          <p className="mt-2 text-[11px] leading-snug text-white/75">AI-native compliance infrastructure for SMBs &amp; NBFCs.</p>
           <div className="mt-3 flex gap-1">
             {['#B4F542', '#111', '#fff', '#2a2a2a'].map((c) => (
               <span key={c} className="h-4 flex-1 ring-1 ring-white/20" style={{ background: c }} />
@@ -66,14 +66,14 @@ function Item({ item }: { item: PlaygroundItem }) {
   }
 }
 
-export default function Playground() {
+export default function Playground({ galleryLink = true }: { galleryLink?: boolean }) {
   const board = useRef<HTMLDivElement>(null)
   const reduce = useReducedMotion()
   const [z, setZ] = useState(() => playground.map((_, i) => i))
   const bump = (i: number) => setZ((prev) => prev.map((v, j) => (j === i ? Math.max(...prev) + 1 : v)))
 
   return (
-    <section id="playground" aria-labelledby="pg-title" className="relative border-t border-dashed border-ink/20 px-4 pb-24 pt-16 sm:px-10">
+    <section id="playground" aria-labelledby="pg-title" className="relative px-4 pb-24 pt-16 sm:px-10">
       <div className="mx-auto max-w-[1160px]">
         <div className="text-center">
           <Kicker>moments</Kicker>
@@ -106,11 +106,13 @@ export default function Playground() {
           ))}
         </div>
 
+        {galleryLink && (
         <div className="mt-8 text-center">
           <Link href="/gallery" className="btn-ink">
             {Icon.diamond({ className: 'h-3.5 w-3.5' })} View the full gallery {Icon.arrowR({ className: 'h-3.5 w-3.5' })}
           </Link>
         </div>
+        )}
       </div>
     </section>
   )

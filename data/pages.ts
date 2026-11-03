@@ -23,28 +23,28 @@ export const avataq: DetailPage = {
   badge: 'AQ',
   kicker: 'currently building',
   title: 'Avataq.ai',
-  subtitle: 'Autonomous software teams for startups — revolutionizing development with AI.',
+  subtitle: 'Building AI-native infrastructure for compliance teams at SMBs and NBFCs.',
   chip: 'Founded 2024',
   intro: {
     heading: 'The vision',
     paragraphs: [
-      'Avataq.ai was born from a simple yet powerful idea: what if startups could have access to autonomous software development teams that work 24/7, never get tired, and continuously learn and improve?',
-      "As a founder and CEO, I envisioned a future where early-stage companies wouldn't be limited by traditional hiring constraints or budget limitations when building their core technology products.",
+      'Compliance at small businesses and NBFCs still runs on spreadsheets, email threads and a few overworked people. Every new circular, every audit and every filing deadline lands on the same desks.',
+      'Avataq.ai is the AI-native layer for that work: agents that handle the repetitive checks, drafting and tracking, so compliance teams can focus on judgement calls instead of busywork.',
     ],
   },
   quote: {
     label: 'Mission statement',
-    text: 'To democratize software development by providing startups with AI-powered autonomous teams that can build, iterate, and scale products faster than traditional development approaches.',
+    text: 'To give every SMB and NBFC compliance team the infrastructure that only large institutions could afford — AI-native, audit-ready, and built for how they actually work.',
   },
   sections: [
     {
       kicker: 'what it does',
       title: 'Key features',
       cards: [
-        { emoji: '🤖', title: 'Autonomous Development', text: 'AI agents that can write, test, and deploy code independently with minimal human oversight.' },
-        { emoji: '⚡', title: 'Rapid Iteration', text: 'Continuous improvement cycles that adapt to changing requirements and user feedback.' },
-        { emoji: '🎯', title: 'Startup-Focused', text: 'Designed specifically for early-stage companies with limited resources but big ambitions.' },
-        { emoji: '📈', title: 'Scalable Solutions', text: 'Architecture that grows with your startup from MVP to enterprise-level applications.' },
+        { emoji: '🤖', title: 'Compliance Agents', text: 'AI agents that take on the repetitive checks, reviews and follow-ups compliance teams do every day.' },
+        { emoji: '📋', title: 'Audit-Ready by Default', text: 'Every action is logged and traceable, so audits start with records instead of a scramble.' },
+        { emoji: '🏦', title: 'Built for SMBs & NBFCs', text: "Designed around the workflows and constraints of smaller teams in regulated finance — not retrofitted from enterprise tools." },
+        { emoji: '🔔', title: 'Never Miss a Deadline', text: 'Filing dates, renewals and policy updates are tracked and surfaced before they become problems.' },
       ],
     },
     {
@@ -52,7 +52,7 @@ export const avataq: DetailPage = {
       title: 'Technology stack',
       layout: 'tools',
       cards: [
-        { emoji: '🧠', title: 'AI/ML', text: 'TensorFlow, PyTorch' },
+        { emoji: '🧠', title: 'AI/ML', text: 'LLM agents, TensorFlow, PyTorch' },
         { emoji: '🖥️', title: 'Frontend', text: 'React, Next.js' },
         { emoji: '⚙️', title: 'Backend', text: 'Node.js, Python' },
         { emoji: '☁️', title: 'Cloud', text: 'AWS, Docker' },
@@ -60,10 +60,10 @@ export const avataq: DetailPage = {
     },
   ],
   cta: {
-    title: 'Ready to transform your startup?',
-    text: 'Join the future of software development with autonomous AI teams that work around the clock to bring your vision to life.',
+    title: 'Run a compliance team?',
+    text: "If you're at an SMB or NBFC and compliance eats your week, I'd love to hear how you work today.",
     links: [
-      { label: 'Get started today', href: '/#contact', primary: true },
+      { label: 'Get in touch', href: '/contact', primary: true },
       { label: 'View source code', href: 'https://github.com/Vishal-code-E' },
     ],
   },
@@ -138,7 +138,7 @@ export const ecell: DetailPage = {
     text: "Be part of a community that's shaping the future of entrepreneurship. Connect with like-minded innovators and turn your ideas into reality.",
     links: [
       { label: 'Visit E-Cell website', href: 'https://ecellrec.app/', primary: true },
-      { label: 'Get involved', href: '/#contact' },
+      { label: 'Get involved', href: '/contact' },
     ],
   },
 }
@@ -199,8 +199,8 @@ export const promptCraft: DetailPage = {
     title: 'Experience the future of AI',
     text: 'Transform your business processes with cutting-edge generative AI. Prompt Craft makes advanced AI accessible, practical, and powerful.',
     links: [
-      { label: 'Start your AI journey', href: '/#contact', primary: true },
-      { label: 'View projects', href: '/#works' },
+      { label: 'Start your AI journey', href: '/contact', primary: true },
+      { label: 'View projects', href: '/projects' },
     ],
   },
 }
@@ -215,7 +215,7 @@ export const github: DetailPage = {
   intro: {
     heading: 'My coding journey',
     paragraphs: [
-      'My GitHub profile showcases my journey as a full-stack developer and AI enthusiast. From building autonomous software teams at Avataq.ai to crafting generative AI solutions with Prompt Craft, my repositories reflect a passion for innovation and clean code.',
+      'My GitHub profile showcases my journey as a full-stack developer and AI enthusiast. From building AI-native compliance infrastructure at Avataq.ai to crafting generative AI solutions with Prompt Craft, my repositories reflect a passion for innovation and clean code.',
       "You'll find projects spanning machine learning, web development, AI automation, and entrepreneurship tools. Each repository tells a story of problem-solving and technological exploration.",
     ],
   },
@@ -228,7 +228,7 @@ export const github: DetailPage = {
       kicker: 'pinned',
       title: 'Featured repositories',
       cards: [
-        { emoji: '🤖', title: 'Avataq.ai Platform', text: 'Autonomous software development teams for startups', tags: ['TypeScript', 'AI/ML'] },
+        { emoji: '🤖', title: 'Avataq.ai Platform', text: 'AI-native infrastructure for compliance teams at SMBs and NBFCs', tags: ['TypeScript', 'AI/ML'] },
         { emoji: '⚡', title: 'Prompt Craft', text: 'Cutting-edge generative AI solutions platform', tags: ['Python', 'GenAI'] },
         { emoji: '🏎️', title: 'F1 ML Analytics', text: 'Aston Martin Formula One machine learning analytics', tags: ['Python', 'Data Science'] },
       ],

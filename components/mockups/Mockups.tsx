@@ -91,25 +91,25 @@ export function EventHubMock() {
 
 export function AvataqMock() {
   const agents = [
-    ['Planner agent', 'running', '#B4F542'],
-    ['Coder agent', 'running', '#B4F542'],
-    ['Reviewer agent', 'queued', '#F2C240'],
-    ['Deploy agent', 'idle', '#ffffff55'],
+    ['KYC review agent', 'running', '#B4F542'],
+    ['Policy monitor', 'running', '#B4F542'],
+    ['Filing drafter', 'queued', '#F2C240'],
+    ['Audit trail', 'synced', '#ffffff55'],
   ]
   return (
     <Window dark url="avataq.ai / console">
       <div className="grid h-full grid-cols-[34%_1fr] gap-3 p-3 text-white">
         <div className="space-y-2 rounded-md bg-white/[.04] p-2.5">
           <p className="font-pixel text-[15px] text-lime">AVATAQ</p>
-          {['Team', 'Tasks', 'Repos', 'Settings'].map((x, i) => (
+          {['Checks', 'Filings', 'Audit', 'Settings'].map((x, i) => (
             <p key={x} className={`rounded px-1.5 py-1 font-mono text-[8.5px] ${i === 0 ? 'bg-lime text-ink' : 'text-white/55'}`}>{x}</p>
           ))}
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-[11px] font-semibold leading-tight">
-            Autonomous software teams
+            AI-native compliance
             <br />
-            <span className="text-lime">for startups.</span>
+            <span className="text-lime">for SMBs &amp; NBFCs.</span>
           </p>
           {agents.map(([n, s, c]) => (
             <div key={n} className="flex items-center justify-between rounded-md bg-white/[.05] px-2 py-1.5">

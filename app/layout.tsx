@@ -10,7 +10,7 @@ import '@fontsource/jetbrains-mono/latin-700.css'
 import './globals.css'
 
 const description =
-  'Sri Ram — full-stack developer & AI entrepreneur. President of E-Cell REC, founder of Avataq.ai and PromptCraft. Turning bold ideas into validated products.'
+  'Sri Ram — full-stack developer & AI entrepreneur. President of E-Cell REC, founder of Avataq.ai (AI-native compliance infrastructure for SMBs & NBFCs) and PromptCraft. Turning bold ideas into validated products.'
 
 export const metadata: Metadata = {
   title: { default: 'Sri Ram — Full Stack Developer & AI Entrepreneur', template: '%s · Sri Ram' },

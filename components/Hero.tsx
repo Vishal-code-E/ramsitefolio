@@ -60,9 +60,9 @@ export default function Hero() {
         }
 
   return (
-    <section id="home" ref={ref} aria-label="Intro" className="relative overflow-hidden xl:min-h-[860px] 2xl:min-h-[900px]">
+    <section id="home" ref={ref} aria-label="Intro" className="relative mx-auto max-w-[1600px] overflow-hidden xl:h-[max(700px,calc(100svh-56px))]">
       {/* ── NAME BLOCK ───────────────────────── */}
-      <motion.div style={{ y: nameY }} className="relative z-10 flex flex-col items-center px-4 pt-12 sm:pt-16 xl:pt-[72px]">
+      <motion.div style={{ y: nameY }} className="relative z-10 flex flex-col items-center px-4 pt-12 sm:pt-16 xl:pt-[clamp(40px,calc((100svh-56px-700px)/2),100px)]">
         <div className="mb-7 flex flex-col items-center sm:mb-9">
           <span className="font-hand text-[15px] leading-none text-neutral-700">hello, I&apos;m</span>
           <Scribble className="mt-0.5 h-2.5 w-14" />
@@ -135,13 +135,13 @@ export default function Hero() {
           <Flower />
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 xl:justify-start">
-          <a href="#about" className="btn-ink">
+          <Link href="/about" className="btn-ink">
             <span className="grid h-5 w-5 place-items-center bg-royal">{Icon.arrowUR({ className: 'h-3 w-3' })}</span>
             Explore me
-          </a>
-          <a href="#works" className="font-hand text-[16px] underline decoration-flame decoration-2 underline-offset-4 hover:text-flame">
-            or peek at the work ↓
-          </a>
+          </Link>
+          <Link href="/projects" className="font-hand text-[16px] underline decoration-flame decoration-2 underline-offset-4 hover:text-flame">
+            or peek at the work →
+          </Link>
         </div>
       </div>
 
@@ -150,7 +150,7 @@ export default function Hero() {
         <div className="note-shadow relative rotate-[3deg] bg-note-yellow p-4 pt-5">
           <span aria-hidden="true" className="tape tape-blue -top-2.5 left-1/2 -translate-x-1/2 -rotate-3" />
           <p className="label !text-[9px] text-ink/70">Currently building</p>
-          <p className="mt-1.5 font-hand text-[20px] leading-[1.15]">Avataq.ai — autonomous software teams for startups.</p>
+          <p className="mt-1.5 font-hand text-[20px] leading-[1.15]">Avataq.ai — AI-native infrastructure for compliance teams at SMBs &amp; NBFCs.</p>
           <Link href="/avataq" className="label mt-2 inline-flex min-h-[32px] items-center gap-1 !text-[9px] underline underline-offset-4">
             see it {Icon.arrowUR({ className: 'h-3 w-3' })}
           </Link>
@@ -158,15 +158,15 @@ export default function Hero() {
       </div>
 
       {/* floating avatar badges near the headline */}
-      <AvatarBadge className="absolute left-[6%] top-[300px] z-30 hidden lg:grid xl:left-[7%] xl:top-[478px]" label="Sri Ram avatar">
+      <AvatarBadge className="absolute left-[6%] top-[300px] z-30 hidden lg:grid xl:left-[7%] xl:top-auto xl:bottom-[300px]" label="Sri Ram avatar">
         <Image src="/avatar.jpg" alt="" width={56} height={56} className="h-full w-full object-cover" />
       </AvatarBadge>
-      <AvatarBadge className="float-delay absolute right-[6%] top-[300px] z-30 hidden lg:grid xl:right-[11%] xl:top-[478px]" label="Avataq badge">
+      <AvatarBadge className="float-delay absolute right-[6%] top-[300px] z-30 hidden lg:grid xl:right-[11%] xl:top-auto xl:bottom-[300px]" label="Avataq badge">
         <span className="grid h-full w-full place-items-center bg-ink font-pixel text-[18px] font-bold text-lime">AQ</span>
       </AvatarBadge>
 
       {/* ── CUTOUT PHOTO (bottom-anchored, sits in front of the name) ── */}
-      <div className="relative z-20 mx-auto mt-8 w-[72%] max-w-[420px] sm:max-w-[460px] xl:absolute xl:bottom-0 xl:left-1/2 xl:mt-0 xl:h-[640px] xl:w-auto xl:max-w-none xl:-translate-x-[40%] 2xl:h-[720px]">
+      <div className="relative z-20 mx-auto mt-8 w-[72%] max-w-[420px] sm:max-w-[460px] xl:absolute xl:bottom-0 xl:left-1/2 xl:mt-0 xl:h-[clamp(520px,calc(100svh-56px-150px),760px)] xl:w-auto xl:max-w-none xl:-translate-x-[40%]">
         <motion.div style={{ y: photoY }} className="relative h-full">
           <motion.div
             className="relative h-full"

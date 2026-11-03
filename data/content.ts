@@ -22,24 +22,32 @@ export const profile = {
 }
 
 export const nav = [
-  { id: 'home', label: 'Home', icon: 'star' },
-  { id: 'about', label: 'About', icon: 'user' },
-  { id: 'experience', label: 'Experience', icon: 'file' },
-  { id: 'works', label: 'Projects', icon: 'grid' },
-  { id: 'blog', label: 'Blog', icon: 'pen' },
-  { id: 'playground', label: 'Gallery', icon: 'diamond' },
+  { href: '/', label: 'Home', icon: 'star' },
+  { href: '/about', label: 'About', icon: 'user' },
+  { href: '/experience', label: 'Experience', icon: 'file' },
+  { href: '/projects', label: 'Projects', icon: 'grid' },
+  { href: '/blog', label: 'Blog', icon: 'pen' },
+  { href: '/gallery', label: 'Gallery', icon: 'diamond' },
 ] as const
+
+// which nav tab a sub-page belongs to
+export const navParent: Record<string, string> = {
+  '/avataq': '/projects',
+  '/prompt-craft': '/projects',
+  '/github': '/projects',
+  '/ecell': '/experience',
+}
 
 export const about = {
   bio: [
     "I'm a full-stack developer and entrepreneur driven by the power of code and community.",
     'With deep expertise in Agentic AI, Machine Learning and autonomous systems, I transform tech visions into reality.',
-    'As founder of Avataq.ai (autonomous software teams for startups) and Prompt Craft (cutting-edge generative AI solutions), I build platforms that empower founders and creators.',
+    'As founder of Avataq.ai (AI-native infrastructure for compliance teams at SMBs and NBFCs) and Prompt Craft (cutting-edge generative AI solutions), I build platforms that take the busywork out of high-stakes work.',
     'Leading innovation, inspiring teams, and turning bold ideas into validated products is what I do best.',
   ],
   roles: [
     { k: 'Leading', v: 'President, E-Cell REC — Raghu Engineering College' },
-    { k: 'Building', v: 'Founder, Avataq.ai — autonomous software teams' },
+    { k: 'Building', v: 'Founder, Avataq.ai — AI-native compliance infrastructure' },
     { k: 'Crafting', v: 'Founder, PromptCraft — generative AI solutions' },
     { k: 'Before', v: 'Core Team & Tech Lead, GDG on Campus REC' },
   ],
@@ -132,8 +140,8 @@ export const experience: ExperienceItem[] = [
     org: 'AVATAQ.AI · Remote',
     points: [
       'Founded AVATAQ.AI, leading product vision and strategy',
-      'Built agentic AI workflows and automation systems for startup MVPs',
-      'Drove customer engagement and business development for solo founders',
+      'Building AI-native infrastructure for compliance teams at SMBs and NBFCs',
+      'Driving customer discovery and business development with compliance and finance teams',
     ],
     color: 'bg-note-lime',
     href: '/avataq',
@@ -187,12 +195,12 @@ export const projects: Project[] = [
     id: 'avataq',
     title: 'Avataq.ai',
     label: 'AI Venture',
-    description: 'Autonomous software teams for startups. Building the future of AI-driven development with agentic workflows.',
+    description: 'Building AI-native infrastructure for compliance teams at SMBs and NBFCs — so compliance runs on agents, not spreadsheets.',
     details: [
-      'AI-powered autonomous development teams',
+      'AI agents for day-to-day compliance work',
+      'Built for SMBs and NBFCs',
+      'Audit-ready records by default',
       'Agentic workflow automation',
-      'Startup-focused rapid prototyping',
-      'Intelligent code generation and review',
     ],
     href: '/avataq',
     source: 'https://github.com/Vishal-code-E',

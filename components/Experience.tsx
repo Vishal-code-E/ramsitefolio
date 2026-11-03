@@ -10,7 +10,7 @@ const tilts = [-1.5, 1.2, -0.8, 1.6, -1.2, 0.9]
 
 export default function Experience() {
   return (
-    <section id="experience" aria-labelledby="exp-title" className="relative border-t border-dashed border-ink/20 px-5 pb-24 pt-16 sm:px-10">
+    <section id="experience" aria-labelledby="exp-title" className="relative px-5 pb-24 pt-16 sm:px-10">
       <div className="mx-auto max-w-[1080px]">
         <div className="text-center">
           <Kicker>where I&apos;ve been ✎</Kicker>

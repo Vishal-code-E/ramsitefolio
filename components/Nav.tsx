@@ -1,28 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'motion/react'
-import { nav, profile } from '@/data/content'
+import { nav, navParent, profile } from '@/data/content'
 import { Icon } from './ui/icons'
-
-function useActiveSection(ids: string[], enabled: boolean) {
-  const [active, setActive] = useState(ids[0])
-  useEffect(() => {
-    if (!enabled) return
-    const els = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el)
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        if (visible[0]) setActive(visible[0].target.id)
-      },
-      { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] },
-    )
-    els.forEach((el) => io.observe(el))
-    return () => io.disconnect()
-  }, [ids, enabled])
-  return enabled ? active : ''
-}
 
 const socials = [
   { href: profile.linkedin, label: 'LinkedIn', icon: 'linkedin', bg: 'bg-mustard' },
@@ -50,19 +33,16 @@ export function SocialDots({ className = '', size = 'h-8 w-8' }: { className?: s
   )
 }
 
-const ids = [...nav.map((n) => n.id), 'contact']
-
-/** `home` = rendered on the single-page home route (hash links + scroll-spy).
- *  On sub-pages the links point back to `/#section`. */
-export default function Nav({ home = true }: { home?: boolean }) {
-  const active = useActiveSection(ids, home)
+export default function Nav() {
+  const pathname = usePathname() || '/'
+  const current = navParent[pathname] ?? pathname
   const [open, setOpen] = useState(false)
-  const to = (id: string) => (home ? `#${id}` : `/#${id}`)
+  const contactOn = current === '/contact'
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur-md">
-      <nav aria-label="Primary" className="mx-auto flex h-[56px] items-center gap-2 px-3 sm:px-5">
-        <Link href={home ? '#home' : '/'} aria-label="Sri Ram — home" className="mr-1 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-hot ring-2 ring-ink">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur-md">
+      <nav aria-label="Primary" className="mx-auto flex h-[56px] max-w-[1600px] items-center gap-2 px-3 sm:px-6">
+        <Link href="/" aria-label="Sri Ram — home" className="mr-1 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-hot ring-2 ring-ink">
           <svg viewBox="0 0 32 32" className="h-6 w-6" aria-hidden="true">
             <circle cx="11.5" cy="13" r="2" fill="#111" />
             <circle cx="20.5" cy="13" r="2" fill="#111" />
@@ -72,18 +52,18 @@ export default function Nav({ home = true }: { home?: boolean }) {
 
         <ul className="hidden items-stretch lg:flex">
           {nav.map((n) => {
-            const on = active === n.id
+            const on = current === n.href
             return (
-              <li key={n.id}>
-                <a
-                  href={to(n.id)}
-                  aria-current={on ? 'true' : undefined}
+              <li key={n.href}>
+                <Link
+                  href={n.href}
+                  aria-current={on ? 'page' : undefined}
                   className={`label relative flex h-[56px] items-center gap-1.5 px-3 !text-[10px] transition-colors ${on ? 'text-ink' : 'text-ink/70 hover:text-ink'}`}
                 >
                   {on && <motion.span layoutId="nav-pill" className="absolute inset-0 -z-10 bg-mustard" transition={{ type: 'spring', stiffness: 400, damping: 34 }} />}
                   {Icon[n.icon]({ className: 'h-3 w-3' })}
                   {n.label}
-                </a>
+                </Link>
               </li>
             )
           })}
@@ -91,12 +71,13 @@ export default function Nav({ home = true }: { home?: boolean }) {
 
         <div className="ml-auto flex items-center gap-2.5">
           <SocialDots className="hidden sm:flex" />
-          <a
-            href={to('contact')}
-            className={`label flex min-h-[36px] items-center gap-1.5 border-[1.5px] border-ink px-3 !text-[10px] shadow-[2px_2px_0_#111] transition-transform hover:-translate-y-0.5 ${active === 'contact' ? 'bg-mustard' : 'bg-white'}`}
+          <Link
+            href="/contact"
+            aria-current={contactOn ? 'page' : undefined}
+            className={`label flex min-h-[36px] items-center gap-1.5 border-[1.5px] border-ink px-3 !text-[10px] shadow-[2px_2px_0_#111] transition-transform hover:-translate-y-0.5 ${contactOn ? 'bg-mustard' : 'bg-white'}`}
           >
             {Icon.heart({ className: 'h-3 w-3' })} Contact
-          </a>
+          </Link>
           <button
             type="button"
             className="grid h-11 w-11 place-items-center lg:hidden"
@@ -117,22 +98,23 @@ export default function Nav({ home = true }: { home?: boolean }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-ink/10 lg:hidden"
+            className="overflow-hidden border-t border-ink/10 bg-paper lg:hidden"
           >
-            <ul className="grid gap-1 p-3">
-              {nav.map((n) => (
-                <li key={n.id}>
-                  <a
-                    href={to(n.id)}
+            <ul className="grid gap-1 p-3 sm:grid-cols-2">
+              {[...nav, { href: '/contact', label: 'Contact', icon: 'heart' } as const].map((n) => (
+                <li key={n.href}>
+                  <Link
+                    href={n.href}
                     onClick={() => setOpen(false)}
-                    className={`label flex min-h-[44px] items-center gap-2 px-3 ${active === n.id ? 'bg-mustard' : ''}`}
+                    aria-current={current === n.href ? 'page' : undefined}
+                    className={`label flex min-h-[48px] items-center gap-2 px-3 !text-[11px] ${current === n.href ? 'bg-mustard' : ''}`}
                   >
                     {Icon[n.icon]({ className: 'h-3.5 w-3.5' })}
                     {n.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
-              <li className="px-3 pt-2">
+              <li className="px-3 pt-2 sm:col-span-2">
                 <SocialDots size="h-10 w-10" />
               </li>
             </ul>

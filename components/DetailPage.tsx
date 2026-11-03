@@ -25,8 +25,8 @@ export default function DetailPage({ data }: { data: Data }) {
   return (
     <article className="px-5 pb-20 pt-8 sm:px-10">
       <div className="mx-auto max-w-[1080px]">
-        <Link href="/#works" className="label inline-flex min-h-[44px] items-center gap-1.5 !text-[10px] text-ink/70 hover:text-ink">
-          {Icon.arrowL({ className: 'h-3.5 w-3.5' })} Back to portfolio
+        <Link href={data.slug === 'ecell' ? '/experience' : '/projects'} className="label inline-flex min-h-[44px] items-center gap-1.5 !text-[10px] text-ink/70 hover:text-ink">
+          {Icon.arrowL({ className: 'h-3.5 w-3.5' })} Back to {data.slug === 'ecell' ? 'experience' : 'projects'}
         </Link>
 
         {/* ── header ── */}
