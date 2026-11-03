@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { about, profile } from '@/data/content'
 import { Icon } from './ui/icons'
 import { EmojiSticker, Kicker, Polaroid, Reveal, TornTag } from './ui/primitives'
@@ -68,9 +69,9 @@ export default function About() {
               >
                 {Icon.linkedin({ className: 'h-4 w-4' })} Connect on LinkedIn
               </a>
-              <a href="#contact" className="font-hand text-[17px] underline decoration-hot decoration-2 underline-offset-4 hover:text-hot">
+              <Link href="/contact" className="font-hand text-[17px] underline decoration-hot decoration-2 underline-offset-4 hover:text-hot">
                 or get in touch →
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>

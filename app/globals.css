@@ -10,13 +10,8 @@
   }
   body {
     @apply font-sans text-ink antialiased;
-    /* grey graph-paper desk around the page card */
-    background-color: #8a8a8a;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
-    background-size: 44px 44px;
-    background-position: -1px -1px;
+    background-color: #fafaf7;
+    overflow-x: hidden;
   }
   ::selection {
     background: #f2c240;

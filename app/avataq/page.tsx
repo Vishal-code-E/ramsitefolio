@@ -4,13 +4,13 @@ import DetailPage from '@/components/DetailPage'
 import { avataq } from '@/data/pages'
 
 export const metadata: Metadata = {
-  title: 'Avataq.ai — Autonomous Software Teams',
-  description: 'Revolutionizing startup development with AI-powered autonomous teams.',
+  title: 'Avataq.ai — AI-Native Compliance Infrastructure',
+  description: 'Building AI-native infrastructure for compliance teams at SMBs and NBFCs.',
 }
 
 export default function Page() {
   return (
-    <Shell home={false}>
+    <Shell>
       <DetailPage data={avataq} />
     </Shell>
   )

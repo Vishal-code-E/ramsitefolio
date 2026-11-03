@@ -106,7 +106,7 @@ function ProjectCard({ p, i }: { p: Project; i: number }) {
 
 export default function Works() {
   return (
-    <section id="works" aria-labelledby="works-title" className="relative border-t border-dashed border-ink/20 px-4 pb-24 pt-14 sm:px-10">
+    <section id="works" aria-labelledby="works-title" className="relative px-4 pb-24 pt-14 sm:px-10">
       <div className="mx-auto max-w-[1120px]">
         <Kicker>explore my work</Kicker>
         <PixelHeading as="h2" id="works-title" text="Featured projects" className="pixel-shadow mb-3 mt-1 text-[46px] font-bold sm:text-[80px] lg:text-[104px]" />

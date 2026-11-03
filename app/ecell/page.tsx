@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Shell home={false}>
+    <Shell>
       <DetailPage data={ecell} />
     </Shell>
   )

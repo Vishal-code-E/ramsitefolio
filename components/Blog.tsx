@@ -86,7 +86,7 @@ export default function Blog() {
   const load = () => setAttempt((a) => a + 1)
 
   return (
-    <section id="blog" aria-labelledby="blog-title" className="relative border-t border-dashed border-ink/20 px-5 pb-24 pt-16 sm:px-10">
+    <section id="blog" aria-labelledby="blog-title" className="relative px-5 pb-24 pt-16 sm:px-10">
       <div className="mx-auto max-w-[1120px]">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>

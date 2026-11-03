@@ -2,7 +2,8 @@
 
 import { useState, type FormEvent } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { profile, recognition } from '@/data/content'
+import Link from 'next/link'
+import { nav, profile, recognition } from '@/data/content'
 import { SocialDots } from './Nav'
 import { Icon } from './ui/icons'
 import { Kicker, PixelHeading, Polaroid, Reveal, Tape } from './ui/primitives'
@@ -214,17 +215,57 @@ export default function Contact() {
   )
 }
 
-export function Footer({ home = true }: { home?: boolean }) {
+export function Footer() {
   return (
-    <footer className="border-t border-ink/10 px-5 py-6 sm:px-10">
-      <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-        <p className="label !text-[9px] text-ink/60">
-          © {new Date().getFullYear()} {profile.fullName}. Crafted with passion and code.
-        </p>
-        <p className="font-hand text-[14px] text-ink/60">built with Next.js, TypeScript, Tailwind CSS &amp; Motion</p>
-        <a href={home ? '#home' : '/'} className="label min-h-[44px] content-center !text-[9px] text-ink/70 hover:text-ink">
-          {home ? 'Back to top ↑' : '← Back home'}
-        </a>
+    <footer className="border-t border-ink/15 bg-ink text-white">
+      <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-12 sm:px-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div>
+          <p className="font-pixel text-[34px] font-bold leading-none">SRI RAM</p>
+          <p className="mt-3 max-w-[340px] text-[14px] leading-relaxed text-white/70">
+            Full stack developer &amp; AI entrepreneur. Building AI-native compliance infrastructure at Avataq.ai.
+          </p>
+          <SocialDots size="h-10 w-10" className="mt-5" />
+        </div>
+        <nav aria-label="Footer">
+          <p className="label mb-3 !text-[9.5px] text-white/50">Pages</p>
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[14px]">
+            {[...nav, { href: '/contact', label: 'Contact' }].map((n) => (
+              <li key={n.href}>
+                <Link href={n.href} className="inline-flex min-h-[32px] items-center text-white/80 hover:text-mustard">
+                  {n.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div>
+          <p className="label mb-3 !text-[9.5px] text-white/50">Say hi</p>
+          <ul className="space-y-1.5 text-[14px] text-white/80">
+            <li>
+              <a href={`mailto:${profile.email}`} className="inline-flex min-h-[32px] items-center break-all hover:text-mustard">{profile.email}</a>
+            </li>
+            <li>
+              <a href={profile.whatsapp} target="_blank" rel="noreferrer" className="inline-flex min-h-[32px] items-center hover:text-mustard">{profile.phone}</a>
+            </li>
+            <li>
+              <a href={profile.newsletter} target="_blank" rel="noreferrer" className="inline-flex min-h-[32px] items-center hover:text-mustard">Newsletter on Hashnode ↗</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-2 px-5 py-4 text-center sm:flex-row sm:px-10">
+          <p className="label !text-[9px] text-white/50">
+            © {new Date().getFullYear()} {profile.fullName}. Crafted with passion and code.
+          </p>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="label min-h-[44px] !text-[9px] text-white/60 hover:text-white"
+          >
+            Back to top ↑
+          </button>
+        </div>
       </div>
     </footer>
   )
