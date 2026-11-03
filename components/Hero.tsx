@@ -105,14 +105,14 @@ export default function Hero() {
           </h1>
 
           {/* bottom-left role tag + arrow */}
-          <motion.div {...pop(1.15)} className="absolute -bottom-12 -left-2 z-30 flex items-start sm:-bottom-12 sm:-left-24 xl:-left-40">
+          <motion.div {...pop(1.15)} className="absolute -bottom-12 -left-24 z-30 hidden items-start sm:flex xl:-left-40">
             <Sticker hand className="float bg-mustard !text-[14px] text-ink" style={r('-3deg')}>
               {profile.role}
             </Sticker>
             <SketchArrow className="-ml-1 -mt-6 hidden h-9 w-11 sm:block" />
           </motion.div>
           {/* bottom-right location tag + arrow */}
-          <motion.div {...pop(1.25)} className="absolute -bottom-12 -right-2 z-30 flex items-start sm:-bottom-12 sm:-right-24 xl:-right-36">
+          <motion.div {...pop(1.25)} className="absolute -bottom-12 -right-24 z-30 hidden items-start sm:flex xl:-right-36">
             <SketchArrow className="-mr-1 -mt-6 hidden h-9 w-11 -scale-x-100 sm:block" />
             <Sticker hand className="float float-delay bg-mint !text-[14px] text-ink" style={r('4deg')}>
               {profile.location}
@@ -121,8 +121,18 @@ export default function Hero() {
         </div>
       </motion.div>
 
+      {/* phones: role + location stickers sit in a row under the name */}
+      <div className="relative z-30 mt-6 flex flex-wrap justify-center gap-2 px-4 sm:hidden">
+        <Sticker hand className="bg-mustard !text-[14px] text-ink" style={{ transform: 'rotate(-2deg)' }}>
+          {profile.role}
+        </Sticker>
+        <Sticker hand className="bg-mint !text-[14px] text-ink" style={{ transform: 'rotate(2deg)' }}>
+          {profile.location}
+        </Sticker>
+      </div>
+
       {/* ── LEFT COLUMN: headline + CTA ─────────────── */}
-      <div className="relative z-30 mx-auto mt-20 max-w-[560px] px-5 text-center xl:absolute xl:bottom-[96px] xl:left-12 xl:mt-0 xl:max-w-[360px] xl:px-0 xl:text-left 2xl:max-w-[410px]">
+      <div className="relative z-30 mx-auto mt-10 max-w-[560px] sm:mt-20 px-5 text-center xl:absolute xl:bottom-[96px] xl:left-12 xl:mt-0 xl:max-w-[360px] xl:px-0 xl:text-left 2xl:max-w-[410px]">
         <p className="label mb-4 inline-flex items-center gap-2 !text-[9.5px] text-ink/80">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-royal opacity-60 motion-reduce:hidden" />
@@ -158,10 +168,10 @@ export default function Hero() {
       </div>
 
       {/* floating avatar badges near the headline */}
-      <AvatarBadge className="absolute left-[6%] top-[300px] z-30 hidden lg:grid xl:left-[7%] xl:top-auto xl:bottom-[300px]" label="Sri Ram avatar">
+      <AvatarBadge className="absolute left-[7%] bottom-[300px] z-30 hidden xl:grid" label="Sri Ram avatar">
         <Image src="/avatar.jpg" alt="" width={56} height={56} className="h-full w-full object-cover" />
       </AvatarBadge>
-      <AvatarBadge className="float-delay absolute right-[6%] top-[300px] z-30 hidden lg:grid xl:right-[11%] xl:top-auto xl:bottom-[300px]" label="Avataq badge">
+      <AvatarBadge className="float-delay absolute bottom-[400px] right-[20%] z-30 hidden xl:grid" label="Avataq badge">
         <span className="grid h-full w-full place-items-center bg-ink font-pixel text-[18px] font-bold text-lime">AQ</span>
       </AvatarBadge>
 
