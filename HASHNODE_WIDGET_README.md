@@ -6,7 +6,7 @@ This directory contains a complete Hashnode blog widget integration for your Nex
 
 - `types/hashnode.ts` - TypeScript interfaces for Hashnode API responses
 - `lib/hashnode.ts` - Utility functions for fetching posts from Hashnode GraphQL API
-- `app/components/HashnodeBlogWidget.tsx` - Main React component
+- `components/Blog.tsx` - Blog section that renders the posts
 
 ## Usage
 
