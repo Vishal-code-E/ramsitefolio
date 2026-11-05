@@ -43,6 +43,8 @@ export async function fetchHashnodePosts(options: HashnodeFetchOptions = {}): Pr
   try {
     const response = await fetch(HASHNODE_API_URL, {
       method: 'POST',
+      // on the server (blog page), cache the result and refresh hourly
+      next: { revalidate: 3600 },
       headers: {
         'Content-Type': 'application/json',
       },
