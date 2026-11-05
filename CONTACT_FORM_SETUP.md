@@ -87,3 +87,14 @@ If you have issues:
 ## Pro Tip:
 
 Consider setting up email filters in Gmail for "Portfolio Contact Form" so these messages go to a specific folder!
+
+## Changing the key without touching code
+
+Set `NEXT_PUBLIC_WEB3FORMS_KEY` in Vercel (Project → Settings → Environment Variables) and redeploy.
+It overrides the key hard-coded in `components/Contact.tsx`.
+
+## If the form can't send
+
+The visitor's message is kept, and they get one-click "Send via Gmail" / "Open my email app"
+buttons with the message already written. The reason Web3Forms gave is shown in small print
+and logged to the browser console (`Contact form failed: …`).

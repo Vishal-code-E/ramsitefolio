@@ -8,8 +8,47 @@ import { SocialDots } from './Nav'
 import { Icon } from './ui/icons'
 import { Kicker, PixelHeading, Polaroid, Reveal, Tape } from './ui/primitives'
 
-// Web3Forms public access key (safe to ship client-side) — see CONTACT_FORM_SETUP.md
-const WEB3FORMS_KEY = 'ca4277c3-7830-4c08-9a97-9440493780ae'
+// Web3Forms public access key (safe to ship client-side) — see CONTACT_FORM_SETUP.md.
+// Set NEXT_PUBLIC_WEB3FORMS_KEY in Vercel to swap it without a code change.
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'ca4277c3-7830-4c08-9a97-9440493780ae'
+
+/** Prefilled "write an email" links, used when the form can't send. */
+function draftLinks(subject: string, body: string) {
+  const q = (o: Record<string, string>) => new URLSearchParams(o).toString().replace(/\+/g, '%20')
+  return {
+    mailto: `mailto:${profile.email}?${q({ subject, body })}`,
+    gmail: `https://mail.google.com/mail/?${q({ view: 'cm', fs: '1', to: profile.email, su: subject, body })}`,
+  }
+}
+
+/** Email address with a one-tap copy button (mailto alone does nothing on machines with no mail app set up). */
+export function EmailLink({ className = '', children }: { className?: string; children?: React.ReactNode }) {
+  const [copied, setCopied] = useState(false)
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(profile.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1800)
+    } catch {
+      /* clipboard blocked — the mailto link still works */
+    }
+  }
+  return (
+    <span className={`inline-flex flex-wrap items-center gap-2 ${className}`}>
+      <a href={`mailto:${profile.email}`} className="group inline-flex min-h-[32px] items-center gap-2.5 break-all">
+        {children ?? profile.email}
+      </a>
+      <button
+        type="button"
+        onClick={copy}
+        className="label rounded-[3px] border border-current/30 px-1.5 py-0.5 !text-[8.5px] opacity-70 transition-opacity hover:opacity-100"
+        aria-label="Copy email address"
+      >
+        {copied ? 'copied ✓' : 'copy'}
+      </button>
+    </span>
+  )
+}
 
 export function Recognition() {
   return (
@@ -64,39 +103,50 @@ function Field({ id, label, ...rest }: { id: string; label: string } & React.Inp
 }
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
+type Draft = { subject: string; body: string; reason: string }
 
 function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
+  const [draft, setDraft] = useState<Draft | null>(null)
   const sending = status === 'sending'
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
     const fd = new FormData(form)
+    const name = `${fd.get('firstname')} ${fd.get('lastname')}`.trim()
+    const email = String(fd.get('email') || '')
+    const subject = String(fd.get('subject') || 'Hello from your portfolio')
+    const message = String(fd.get('message') || '')
+
+    // Web3Forms' documented browser format: plain form data, no JSON headers
+    // (a "simple" request, so there's no cross-site preflight to fail).
+    const payload = new FormData()
+    payload.append('access_key', WEB3FORMS_KEY)
+    payload.append('name', name)
+    payload.append('email', email)
+    payload.append('subject', subject)
+    payload.append('message', message)
+    payload.append('from_name', 'Portfolio Contact Form')
+    payload.append('botcheck', String(fd.get('botcheck') || ''))
+
     setStatus('sending')
+    setDraft(null)
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          name: `${fd.get('firstname')} ${fd.get('lastname')}`,
-          email: fd.get('email'),
-          subject: fd.get('subject'),
-          message: fd.get('message'),
-          from_name: 'Portfolio Contact Form',
-          replyto: fd.get('email'),
-        }),
-      })
-      const result = await res.json()
-      if (!result.success) throw new Error(result.message || 'Failed')
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: payload })
+      const result = await res.json().catch(() => ({ success: false, message: `HTTP ${res.status}` }))
+      if (!res.ok || !result.success) throw new Error(result.message || `HTTP ${res.status}`)
       setStatus('success')
       form.reset()
       const confetti = (await import('canvas-confetti')).default
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         confetti({ particleCount: 120, spread: 75, origin: { y: 0.7 }, colors: ['#F2C240', '#F2468C', '#2F54D6', '#1FA85A', '#F2642D'] })
       }
-    } catch {
+    } catch (err) {
+      // keep what they typed: hand it to their email app / Gmail instead
+      const reason = err instanceof Error ? err.message : 'Network error'
+      console.error('Contact form failed:', reason)
+      setDraft({ subject, body: `${message}\n\n— ${name} (${email})`, reason })
       setStatus('error')
     }
   }
@@ -119,6 +169,8 @@ function ContactForm() {
           <span className="label mb-1 block !text-[9.5px] text-ink/70">Message *</span>
           <textarea id="message" name="message" required rows={5} placeholder="Tell me about your project…" className="field resize-y" />
         </label>
+        {/* honeypot: real people never see or fill this */}
+        <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <button type="submit" className="btn-ink mt-1 w-fit">
           {Icon.send({ className: 'h-4 w-4' })} {sending ? 'Sending…' : 'Send message'}
         </button>
@@ -129,17 +181,19 @@ function ContactForm() {
             🎉 Awesome! Your message just landed in my inbox. I&apos;ll hit you back real soon — let&apos;s make something incredible together!
           </span>
         )}
-        {status === 'error' && (
-          <span className="block bg-note-pink px-3 py-2">
-            Oops, that didn&apos;t send. Email me at{' '}
-            <a className="font-semibold underline" href={`mailto:${profile.email}`}>
-              {profile.email}
-            </a>{' '}
-            or message me on{' '}
-            <a className="font-semibold underline" href={profile.linkedin} target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-            .
+        {status === 'error' && draft && (
+          <span className="block bg-note-pink px-3 py-3">
+            <span className="block font-semibold">That didn&apos;t send — but your message isn&apos;t lost.</span>
+            <span className="mt-1 block text-[13px] text-ink/70">Send it straight from your email instead (it&apos;s already written):</span>
+            <span className="mt-3 flex flex-wrap gap-2">
+              <a className="label inline-flex min-h-[40px] items-center gap-1.5 bg-ink px-3 !text-[10px] text-white" href={draftLinks(draft.subject, draft.body).gmail} target="_blank" rel="noreferrer">
+                {Icon.mail({ className: 'h-3.5 w-3.5' })} Send via Gmail
+              </a>
+              <a className="label inline-flex min-h-[40px] items-center gap-1.5 border-[1.5px] border-ink bg-white px-3 !text-[10px]" href={draftLinks(draft.subject, draft.body).mailto}>
+                Open my email app
+              </a>
+            </span>
+            <span className="mt-2 block font-mono text-[10.5px] text-ink/50">reason: {draft.reason}</span>
           </span>
         )}
       </p>
@@ -170,10 +224,10 @@ export default function Contact() {
               </p>
               <ul className="mt-5 space-y-2.5 text-[14px]">
                 <li>
-                  <a href={`mailto:${profile.email}`} className="group inline-flex min-h-[32px] items-center gap-2.5">
-                    <span className="grid h-8 w-8 place-items-center bg-ink text-white">{Icon.mail({ className: 'h-4 w-4' })}</span>
+                  <EmailLink>
+                    <span className="grid h-8 w-8 shrink-0 place-items-center bg-ink text-white">{Icon.mail({ className: 'h-4 w-4' })}</span>
                     <span className="underline-offset-4 group-hover:underline">{profile.email}</span>
-                  </a>
+                  </EmailLink>
                 </li>
                 <li>
                   <a href={profile.whatsapp} target="_blank" rel="noreferrer" className="group inline-flex min-h-[32px] items-center gap-2.5">
@@ -242,7 +296,7 @@ export function Footer() {
           <p className="label mb-3 !text-[9.5px] text-white/50">Say hi</p>
           <ul className="space-y-1.5 text-[14px] text-white/80">
             <li>
-              <a href={`mailto:${profile.email}`} className="inline-flex min-h-[32px] items-center break-all hover:text-mustard">{profile.email}</a>
+              <EmailLink className="hover:[&>a]:text-mustard" />
             </li>
             <li>
               <a href={profile.whatsapp} target="_blank" rel="noreferrer" className="inline-flex min-h-[32px] items-center hover:text-mustard">{profile.phone}</a>

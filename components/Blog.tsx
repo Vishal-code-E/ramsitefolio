@@ -24,7 +24,7 @@ function PostCard({ post, i }: { post: HashnodePost; i: number }) {
       <Tape color={tapes[i % tapes.length]} className="-top-2.5 left-1/2 -translate-x-1/2 -rotate-2" />
       <div className={`relative aspect-[16/9] overflow-hidden ${fallbackTints[i % fallbackTints.length]}`}>
         {post.coverImage?.url ? (
-          <Image src={post.coverImage.url} alt="" fill sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+          <Image src={post.coverImage.url} alt="" fill unoptimized sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
         ) : (
           <span aria-hidden="true" className="absolute inset-0 grid place-items-center font-pixel text-[40px] text-ink/20">✎</span>
         )}
@@ -64,12 +64,16 @@ function Skeleton() {
   )
 }
 
-export default function Blog() {
+export default function Blog({ initialPosts = null }: { initialPosts?: HashnodePost[] | null }) {
   // bump `attempt` to (re)fetch; state only changes inside the promise callbacks
   const [attempt, setAttempt] = useState(0)
-  const [result, setResult] = useState<{ attempt: number; posts?: HashnodePost[]; error?: string } | null>(null)
+  const [result, setResult] = useState<{ attempt: number; posts?: HashnodePost[]; error?: string } | null>(
+    initialPosts ? { attempt: 0, posts: initialPosts } : null,
+  )
 
   useEffect(() => {
+    // posts already came from the server on first render — no client fetch needed
+    if (attempt === 0 && initialPosts) return
     let live = true
     fetchHashnodePosts({ first: 6 }).then(
       (p) => live && setResult({ attempt, posts: p }),
@@ -78,7 +82,7 @@ export default function Blog() {
     return () => {
       live = false
     }
-  }, [attempt])
+  }, [attempt, initialPosts])
 
   const current = result?.attempt === attempt ? result : null
   const posts = current?.posts ?? null
