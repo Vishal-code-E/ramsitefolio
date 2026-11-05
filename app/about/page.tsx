@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Shell from '@/components/Shell'
 import About from '@/components/About'
 import Testimonials from '@/components/Testimonials'
+import BuildingAvataq from '@/components/BuildingAvataq'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -12,6 +13,7 @@ export default function Page() {
   return (
     <Shell>
       <About />
+      <BuildingAvataq />
       <Testimonials />
     </Shell>
   )
