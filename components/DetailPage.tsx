@@ -1,5 +1,6 @@
 'use client'
 
+import AvataqLogo from './AvataqLogo'
 import Link from 'next/link'
 import type { DetailPage as Data } from '@/data/pages'
 import { Icon } from './ui/icons'
@@ -33,8 +34,8 @@ export default function DetailPage({ data }: { data: Data }) {
         <header className="mt-6 grid items-end gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <span className="grid h-14 w-14 place-items-center rounded-full border-[3px] border-flame bg-ink font-pixel text-[18px] font-bold text-lime shadow-polaroid">
-                {data.badge}
+              <span className="grid h-14 w-14 place-items-center overflow-hidden rounded-full border-[3px] border-flame bg-ink font-pixel text-[18px] font-bold text-lime shadow-polaroid">
+                {data.slug === 'avataq' ? <AvataqLogo variant="mark" className="h-auto w-[62%]" /> : data.badge}
               </span>
               {data.chip && (
                 <span className="label border-[1.5px] border-ink bg-note-yellow px-2.5 py-1 !text-[9.5px]" style={{ transform: 'rotate(-2deg)' }}>

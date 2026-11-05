@@ -1,6 +1,7 @@
 /* Illustrated product mockups, drawn in markup so the site ships
    without screenshots. Replace any of these with a real image by
    setting `image` on the project in data/content.ts. */
+import AvataqLogo from '../AvataqLogo'
 import type { ReactNode } from 'react'
 import type { Project } from '@/data/content'
 
@@ -100,7 +101,7 @@ export function AvataqMock() {
     <Window dark url="avataq.ai / console">
       <div className="grid h-full grid-cols-[34%_1fr] gap-3 p-3 text-white">
         <div className="space-y-2 rounded-md bg-white/[.04] p-2.5">
-          <p className="font-pixel text-[15px] text-lime">AVATAQ</p>
+          <AvataqLogo className="h-4 w-auto" />
           {['Checks', 'Filings', 'Audit', 'Settings'].map((x, i) => (
             <p key={x} className={`rounded px-1.5 py-1 font-mono text-[8.5px] ${i === 0 ? 'bg-lime text-ink' : 'text-white/55'}`}>{x}</p>
           ))}

@@ -1,5 +1,6 @@
 'use client'
 
+import AvataqLogo from './AvataqLogo'
 import { useRef, type CSSProperties, type ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -172,7 +173,9 @@ export default function Hero() {
         <Image src="/avatar.jpg" alt="" width={56} height={56} className="h-full w-full object-cover" />
       </AvatarBadge>
       <AvatarBadge className="float-delay absolute bottom-[400px] right-[20%] z-30 hidden xl:grid" label="Avataq badge">
-        <span className="grid h-full w-full place-items-center bg-ink font-pixel text-[18px] font-bold text-lime">AQ</span>
+        <span className="grid h-full w-full place-items-center bg-ink p-2.5">
+          <AvataqLogo variant="mark" className="h-auto w-full" />
+        </span>
       </AvatarBadge>
 
       {/* ── CUTOUT PHOTO (bottom-anchored, sits in front of the name) ── */}

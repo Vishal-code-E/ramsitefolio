@@ -1,5 +1,6 @@
 'use client'
 
+import AvataqLogo from './AvataqLogo'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -52,7 +53,7 @@ function Item({ item }: { item: PlaygroundItem }) {
       return (
         <div className="relative bg-ink p-4 shadow-card" style={{ width: item.w }}>
           <Tape color="mint" className="-top-2 left-1/2 -translate-x-1/2 rotate-2" />
-          <p className="font-pixel text-[30px] font-bold leading-none text-lime">AVATAQ</p>
+          <AvataqLogo className="h-9 w-auto" />
           <p className="mt-2 text-[11px] leading-snug text-white/75">AI-native compliance infrastructure for SMBs &amp; NBFCs.</p>
           <div className="mt-3 flex gap-1">
             {['#B4F542', '#111', '#fff', '#2a2a2a'].map((c) => (

@@ -325,3 +325,55 @@ export const gallery = [
   { src: '/COGNIZANT%20HYD%20SET%206%20-6.jpg', alt: 'Workplace moments' },
   { src: '/COGNIZANT%20HYD%20SET%204%20-5.jpg', alt: 'Team collaboration' },
 ]
+
+// "What I'm building" story on the About page (and /avataq)
+export const avataqStory = {
+  tagline: 'An AI assistant for compliance work in regulated businesses.',
+  status: ['Pre-launch', 'Working backend', 'Starting with NBFCs in India'],
+  problem:
+    "Every regulated business shares the same headache. Rules keep changing, filings are due every month and quarter, supporting documents have to be gathered, and everything has to stand up to an audit. Most of this still runs on spreadsheets, email threads and a handful of stretched people or outside CAs — it's slow, expensive, and a missed deadline can mean a penalty.",
+  does: [
+    'Watches new regulatory circulars as they are published',
+    'Works out which rules actually apply to your company',
+    'Tracks every filing deadline',
+    'Collects the supporting documents',
+    'Drafts the filings',
+    'Keeps a tamper-proof log of everything it does',
+  ],
+  guardrail:
+    'A human approves anything that matters. Avataq never files on its own — and a CA has to sign off by law anyway.',
+  who: {
+    text:
+      "The idea fits any regulated business: lending companies (NBFCs), fintechs, banks, insurers, payment companies, and the CA and compliance firms that serve them. We're starting with NBFCs in India, where the rules are heavy and recurring — a space we can go deep in rather than spreading thin.",
+    buyer: 'The buyer is usually the CFO or the head of compliance.',
+  },
+  different: {
+    intro:
+      "We once thought nobody was doing this. Research proved us wrong: funded players like OnFinance AI and TeamLease's RegTrack are already here. So the real question is where we can be different. Our bets — all still unproven:",
+    bets: [
+      'Going deeper on actually preparing filings and collecting evidence',
+      'Serving the smaller companies the big tools ignore',
+      "Keeping customer data inside India, or inside the customer's own systems",
+    ],
+  },
+  done: [
+    'Two rounds of market research',
+    'Worked through the relevant RBI rules',
+    'Mapped the competitors',
+    'Built a working backend',
+  ],
+  doneNote: "It isn't a finished product yet, and we don't have customers.",
+  unknowns: [
+    'How much companies really spend on compliance today',
+    "Whether they'd pay for a tool like this",
+    'Whether data privacy is a genuine blocker or just something people say',
+    'Which size of NBFC fits best — the smallest may not have a dedicated compliance officer',
+    'Pricing: the number we had in mind has no proof behind it yet',
+  ],
+  next: 'Talk to around 10 people who do this work every day, and study the competition properly — before writing more code.',
+  help: {
+    ask:
+      'Know someone who handles compliance at an NBFC, fintech, bank, insurer or CA firm? A 20-minute intro would mean a lot.',
+    feedback: "And if anything here sounds confusing or unconvincing, tell me — that's just as useful.",
+  },
+}
